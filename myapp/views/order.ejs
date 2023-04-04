@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+  <title>Home Page</title>
+  <link href="order.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="container">
+    <div class="button-grid">
+      <% for (var i in menuitems) { %>
+      <button onclick="handleClick('<%= menuitems[i].itemid %>')">
+        <%= menuitems[i].itemname %>
+      </button>
+      <% } %>
+    </div>
+    <div class="text-box">
+      <input type="text" readonly value="Order will apear here.">
+    </div>
+  </div>
+</body>
