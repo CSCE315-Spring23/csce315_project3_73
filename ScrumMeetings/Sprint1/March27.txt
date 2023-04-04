@@ -1,1 +1,62 @@
+--------------------------------------------------------
 Here are our notes from meeting one of sprint 1:
+-------------------------------------------------------- 
+Agenda:
+--------------------------------------------------------
+What do we want in future meetings?
+
+Is there anything preventing contributors from getting work done? 
+
+What did you do yesterday?
+
+What are you doing today?
+
+How confident are you about our goals for the sprint?
+
+--------------------------------------------------------
+Starting Notes:
+--------------------------------------------------------
+We started by talking about these meetings in general and how we think we should use them to make a successfully ran project. 
+We talked about questions we wanted to talk over during our meetings. We added the questions to this document and then talked about those questions.
+
+We decided it would be best for one person to go at a time. 
+--------------------------------------------------------
+Tyler 
+--------------------------------------------------------
+Tyler went first. He talked about the things that prevented him from getting work done. This included things such as lack of knowledge of frameworks and web developments.
+He also has trouble with APIs and is confused.
+
+Yesterday he worked on downloading postman and node js in order to start learning about this technologies.
+
+Today he worked on learning those technologies and trying to gain an understanding of how this project will go forward. 
+
+He stated that he is not confident in reaching spring goals because he thinks we might have created stories that are too complicated considering we are just now learning about some frameworks.
+--------------------------------------------------------
+Nitesh
+--------------------------------------------------------
+Nitesh went next. He talked about how he also had lacking knowledge in tools such as NodeJS and other web development technologies. This seems to be a common theme in our group.
+
+Yesterday Nitesh worked on setting up NodeJS on his computer and getting things running smoothly. He also researched the best ways to implement our project, which included learning about the different API's
+we are required to use.
+
+Today he going to work on testing different frameworks to find whats easiest for him. He will also be ensuring that Lucas and Tyler are staying focused and on track.
+
+Nitesh is somewhat confident we can pull through for this sprint, since he is confident we can learn things quickly.
+--------------------------------------------------------
+Lucas
+--------------------------------------------------------
+Lucas went last. He talked about how what was holding him back was his computer issues. He talked about how NodeJS would not work on his computer. 
+
+Yesterday he worked on getting that to work and successfully downloaded it and got it running.
+
+Today he will learn and explore nodejs. He thinks it is important for us to all to have an understanding before we start.
+
+He is not confident we will finish all the items in this sprint, because we did not take into account the learning curve.
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+Ending Notes;
+--------------------------------------------------------
+Overall this meeting opened our eyes to the idea that we were kind of behind. The leanring curve for this project had hit us, but we look forward to overcoming that. We have decided
+to meet on wednesday to have another meeting.
+--------------------------------------------------------
