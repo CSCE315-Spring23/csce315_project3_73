@@ -1,1 +1,53 @@
-Here are our notes from meeting two of sprint 1:
+--------------------------------------------------------
+Here are our notes from meeting one of sprint 1:
+-------------------------------------------------------- 
+Agenda:
+--------------------------------------------------------
+What do we want in future meetings?
+
+Is there anything preventing contributors from getting work done? 
+
+What did you do yesterday?
+
+What are you doing today?
+
+How confident are you about our goals for the sprint?
+
+--------------------------------------------------------
+Starting Notes:
+--------------------------------------------------------
+The conclusion of the last meeting was that our project is slightly behind the schedule in deployement of the website.
+This meeting will be deciding the framework of the website and how the front and the back end will be implemented
+
+--------------------------------------------------------
+Nitesh
+--------------------------------------------------------
+Since the last meeting Nitesh had practiced using nodeJS and was able to learn a bit more about how to implement it for the project.
+
+Nitesh's next step is to further learn more about how the functions of the last project will be transfered to the website.
+
+Nitesh will be getting updates from Tyler and Lucas to ensure progress on the project.
+--------------------------------------------------------
+Lucas
+--------------------------------------------------------
+Since the last meeting, Lucas was able to get nodeJS to work and also play around with the code given in lab.
+
+Lucas is slightly more confident in being able to accomplish project and did some research on how the project could be implemented.
+
+Lucas is going to reseach more on the front end of the project and how it will implement the functions from the last project.
+--------------------------------------------------------
+Tyler 
+--------------------------------------------------------
+After the last meeting, Tyler had researched more about nodeJS and utilized the example code from the lab slides to deploy a website.
+
+Tyler was able to get a website up and also able to connect the website to the query to get buttons on the website.
+
+Before the next meeting, Tyler is going to try to implement more of the functionalities of the previous project on the website.
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+Ending Notes;
+--------------------------------------------------------
+After ending this meeting the team was able to have some more direction in how the project will be completed after some independent
+research done by each team member. The team was in agreement that we are still behind progress and will need to make up for it in the future.
+--------------------------------------------------------
