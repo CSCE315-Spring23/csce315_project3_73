@@ -1,7 +1,25 @@
 <!DOCTYPE html>
 <head>
   <title>Home Page</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script> 
 </head>
 <body>
-  <p>This is <%=name%>'s homepage.</p>
+  <h1>Please Login</h1>
+  <div id="g_id_onload"
+     data-client_id="947810255577-aggap7cvgjsnk288h2opb13igc811d0s.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="redirect"
+     data-login_uri="http://localhost:3000/"
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="filled_blue"
+     data-text="signin_with"
+     data-size="large"
+     data-logo_alignment="left">
+</div>
+   
 </body>

@@ -18,7 +18,7 @@ process.on("SIGINT", function () {
   pool.end();
   console.log("Application successfully shutdown");
   process.exit(0);
-});
+}); 
 
 app.set("view engine", "ejs");
 
@@ -35,11 +35,24 @@ app.get("/order", (req, res) => {
     for (let i = 0; i < query_res.rowCount; i++) {
       menuitems.push(query_res.rows[i]);
     }
-    const data = { menuitems: menuitems };
-    console.log(menuitems);
+    const data = { menuitems: menuitems }; 
     res.render("order", data);
   });
 });
+
+app.get('/orderquery', (req, res) => { 
+  const query = req.query.query;
+  pool.query(query)
+      .then(result => {
+          
+          res.send(result.rows); 
+      })
+      .catch(error => {
+          res.status(500).send(error);
+           
+      });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
