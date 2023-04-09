@@ -1,1 +1,55 @@
-Here are our notes from meeting three of sprint 1:
+--------------------------------------------------------
+Here are our notes from meeting one of sprint 1:
+-------------------------------------------------------- 
+Agenda:
+--------------------------------------------------------
+What do we want in future meetings?
+
+Is there anything preventing contributors from getting work done? 
+
+What did you do yesterday?
+
+What are you doing today?
+
+How confident are you about our goals for the sprint?
+
+--------------------------------------------------------
+Starting Notes:
+--------------------------------------------------------
+The conclusion and goals from the last meeting were to keep researching how to use nodeJS to transfer the capabilities and function
+our last project onto a website.
+
+--------------------------------------------------------
+Lucas
+--------------------------------------------------------
+After the last meeting Lucas was not able to complete as much of the tasks as he wanted to because of exams and other classes.
+
+He was able to research how some websites used different extensions and API's to deploy websites and make them functional.
+
+Lucas will continue in doing research for the front end and try to make it accurate to the designed GUI.
+--------------------------------------------------------
+Nitesh
+--------------------------------------------------------
+Nitesh was also not able to make as much progress as he would have liked because he also had exams that he needed to prepare for.
+
+Nitesh was still able to get some of the functions of the last project to be functional on the website.
+
+He was able to make some progress in what he was assigned to do and will continue that progress for the first sprint.
+
+His goal is to transfer more of the functions from the last project to the website.
+--------------------------------------------------------
+Tyler 
+--------------------------------------------------------
+Tyler has been working on how to style the website to look accurate to the GUI that we designed.
+
+He has accomplished a few of the functions that he was tasked to him and is making steady progress.
+
+Tyler is going to be working on the tasks that he was assigned and try to get them done by the first sprint.
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+Ending Notes;
+--------------------------------------------------------
+After ending this meeting the team was able to have some more direction in how the project will be completed after some independent
+research done by each team member. The team was in agreement that we are still behind progress and will need to make up for it in the future.
+--------------------------------------------------------
