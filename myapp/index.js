@@ -67,8 +67,7 @@ passport.use(
       pool.query(`SELECT * FROM employees WHERE LOWER(firstname)='${firstName}' AND LOWER(lastname)='${lastName}'`)
         .then((result) => {
           if (result.rowCount > 0 && result.rows[0].isadmin) {
-            isAdmin = true;
-            isServer = true;
+            isAdmin = true; 
           }else if(result.rowCount > 0 &&  result.rows[0].isadmin == false){ 
             isServer = true;
           }else{
@@ -103,11 +102,13 @@ app.get(
   function (req, res) {
     // This function will be called after successful authentication
     // Redirect the user to the home page or some other page
-    if (isServer) {
-      res.redirect("/order");
-    } else {
+    if (isAdmin) {
+      res.redirect("/manager");
+    } else if(isCustomer){
       res.redirect("/customer");
-    } 
+    } else if(isServer){
+      res.redirect("/order");
+    }
      
   }
 );
