@@ -142,6 +142,11 @@ app.get("/order", ensureAuthenticated, (req, res) => {
     });
   }
 });
+app.get("/manager", ensureAuthenticated, (req, res) => {
+  if (isAdmin) {
+    res.render("manager");
+  }
+});
 
 app.get("/orderquery", (req, res) => {
   const query = req.query.query;
