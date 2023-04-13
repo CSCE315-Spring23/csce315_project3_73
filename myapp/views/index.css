@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    background-image: url('https://www.incimages.com/uploaded_files/image/1920x1080/smoothie-king-front-2_44548957420_o_397404.jpg');
+  background-size: cover;
+  background-position: center;
+  }
+
+  /* Container for login form */
+  .login-container {
+    padding: 40px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  /* Login form title */
+  .login-title {
+    margin-top: 0;
+    font-size: 3rem;
+  }
+
+  /* Google sign-in button */
+  .google-button {
+    display: block;
+    padding: 20px 40px;
+    margin: 0 auto;
+    font-size: 2rem;
+    background-color: #dd4b39;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+  }
+
+  .google-button:hover {
+    background-color: #c74332;
+  } 
