@@ -57,7 +57,7 @@ passport.use(
       clientID:
         "947810255577-aggap7cvgjsnk288h2opb13igc811d0s.apps.googleusercontent.com",
       clientSecret: "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",
-      callbackURL: "http://localhost:3000/auth/google/callback",
+      callbackURL: "https://csce315-project3-73.onrender.com/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       // This function will be called after successful authentication
