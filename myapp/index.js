@@ -1,4 +1,5 @@
 const express = require("express"); 
+//const fetch = require('node-fetch');
 
 const { Pool } = require("pg");
 const dotenv = require("dotenv").config();
@@ -143,10 +144,15 @@ app.get("/order", ensureAuthenticated, (req, res) => {
     });
   }
 });
-app.get("/manager", ensureAuthenticated, (req, res) => {
-  if (isAdmin) {
+// app.get("/manager", ensureAuthenticated, (req, res) => {
+//   if (isAdmin) {
+//     res.render("manager");
+//   }
+// });
+app.get("/manager", (req, res) => {
+  
     res.render("manager");
-  }
+ 
 });
 
 app.get("/orderquery", (req, res) => {
@@ -160,6 +166,22 @@ app.get("/orderquery", (req, res) => {
       res.status(500).send(error);
     });
 });
+
+// app.get('/weather', async (req, res) => {
+//   try {
+//     const location = 'College Station';
+//     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=College Station&appid=${apiKey}`);
+//     const data = await response.json();
+//     const temperature = Math.round(data.main.temp - 273.15);
+//     const description = data.weather[0].description;
+//     const city = data.name;
+//     const country = data.sys.country;
+//     res.send(`The weather in ${city}, ${country} is ${temperature}°C and ${description}.`);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send('Error fetching weather data');
+//   }
+// });
 
 // add the following middleware after defining passport middleware
 // app.use((req, res, next) => {
