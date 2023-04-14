@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const city = data.name;
         const country = data.sys.country;
   
-        weatherDiv.innerHTML = `The weather in ${city}, ${country} is ${temperature}°C and ${description}.`;
+        weatherDiv.innerHTML = `The weather in ${city}, ${country} is ${temperature * 1.8 + 31}°F and ${description}.`;
       })
       .catch(error => {
         console.log(error);
