@@ -142,6 +142,8 @@ app.get("/order", ensureAuthenticated, (req, res) => {
       const data = { menuitems: menuitems };
       res.render("order", data);
     });
+  }else{
+    res.render("customer", data);
   }
 });
 // app.get("/manager", ensureAuthenticated, (req, res) => {
@@ -150,9 +152,9 @@ app.get("/order", ensureAuthenticated, (req, res) => {
 //   }
 // });
 app.get("/manager", (req, res) => {
-  
+  if(isAdmin){
     res.render("manager");
- 
+  } 
 });
 
 app.get("/orderquery", (req, res) => {
