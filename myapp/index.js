@@ -154,7 +154,9 @@ app.get("/order", ensureAuthenticated, (req, res) => {
 app.get("/manager", (req, res) => {
   if(isAdmin){
     res.render("manager");
-  } 
+  } else{
+    res.render("order");
+  }
 });
 
 app.get("/orderquery", (req, res) => {
