@@ -38,6 +38,7 @@ a:hover {
 }
 
 .button-grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 100px;
@@ -78,7 +79,7 @@ a:hover {
 }
 
 .text-box {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 40%;
