@@ -20,6 +20,8 @@ Nitesh went first. He practiced with HTML and CSS and gained some knowledge on h
 
 He has completed the navigation bar and is working with Lucas on creating the manager view. 
 
+Nitesh also plans on adding the delete order from the list.
+
 Nitesh believes that we can somehow pull through this sprint if we kept the pace.
 --------------------------------------------------------
 Lucas
@@ -27,6 +29,8 @@ Lucas
 Lucas went next. He went over the api keys over the weekend and figured what he needed to do.  
 
 Lucas completed implementing the API keys and OAuth login and was also working with Nitesh in creating the manager view.
+
+Today, Lucas plans on being able to include reports in the manager view.
 
 Lucas is confident that we can pull through for the sprint even if we have a lot more tasks.
 --------------------------------------------------------
@@ -36,7 +40,7 @@ Tyler went last. He had also brushed up on the different APIs and came prepared 
 
 He completed adding the weather api to the website, the server orders, and connecting it to the SQL database.
 
-Today he worked on finishing up weather api and creating a simple route to the manager view for it.
+Today, he was working with Lucas on efficiently including the sales and the restock reports in the manager view.
 
 Tyler is also confident that the team can finish the tasks on time given we keep working diligently.
 --------------------------------------------------------
