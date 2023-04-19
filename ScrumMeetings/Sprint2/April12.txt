@@ -22,7 +22,7 @@ He has completed the navigation bar and is working with Lucas on creating the ma
 
 Nitesh also plans on adding the delete order from the list.
 
-Nitesh believes that we can somehow pull through this sprint if we kept the pace.
+Nitesh is slightly not confident that we may be able to pull through this sprint due to the massive number of tasks.
 --------------------------------------------------------
 Lucas
 --------------------------------------------------------

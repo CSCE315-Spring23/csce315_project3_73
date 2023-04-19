@@ -1,1 +1,52 @@
- 
+--------------------------------------------------------
+Here are our notes from meeting three of sprint 2:
+-------------------------------------------------------- 
+Agenda:
+-------------------------------------------------------- 
+
+Is there anything preventing contributors from getting work done? 
+
+What did you do yesterday?
+
+What are you doing today?
+
+How confident are you about our goals for the sprint?
+
+--------------------------------------------------------
+Lucas
+--------------------------------------------------------
+Lucas went first. He has been working along with Tyler and Nitesh on the manager view.
+
+Today, Lucas was researching how to include Google translate api keys and setting up the back end and request to the API.
+
+He also plans on working on generating reports in the manager view.
+
+Lucas thinks we should push some tasks onto the next sprint due to time constraints.
+--------------------------------------------------------
+Tyler 
+--------------------------------------------------------
+Tyler went next. He had completed creating the manager view in the website.
+
+Yesterday, he was working on the logic for all the reports in the manager view.
+
+Today, he was trying to create a simple route the customer view.
+
+Tyler also thinks that we should delegate some of the tasks to try and catch up to the original product backlog.
+--------------------------------------------------------
+Nitesh
+--------------------------------------------------------
+Nitesh went last. He completed adding the delete orders from the list in the server view.
+
+Yesterday, he was researching how to allow the reports in the manager view to be downloaded into a pdf. 
+
+Today, he was working with Tyler and Lucas on the logic for implementing the reports in the manager view.
+
+Nitesh also believes that we won't be able to complete all the tasks planned for sprint 2 and to push some of them to sprint 3.
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+Ending Notes;
+--------------------------------------------------------
+After ending this meeting the team was able to have some direction for the next sprint and plans on working much more diligently
+to complete the project. The team is in agreement that while we have made significant progress in this sprint, we are still behind on schedule.
+--------------------------------------------------------
