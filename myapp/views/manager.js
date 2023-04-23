@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
  
   
-  const dropdownMenu = document.getElementById("dropdown-menu");
+  const dropdownMenu = document.getElementById("dropdown");
   const displayArea = document.getElementById("display-area");
 
   dropdownMenu.addEventListener("change", () => {
