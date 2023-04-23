@@ -16,4 +16,19 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(error);
       });
   });
+ 
   
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  const displayArea = document.getElementById("display-area");
+
+  dropdownMenu.addEventListener("change", () => {
+    const selectedOption = dropdownMenu.value;
+
+    if (selectedOption === "option1") {
+      displayArea.innerHTML = "<p>This is the content for option 1.</p>";
+    } else if (selectedOption === "option2") {
+      displayArea.innerHTML = "<p>This is the content for option 2.</p>";
+    } else if (selectedOption === "option3") {
+      displayArea.innerHTML = "<p>This is the content for option 3.</p>";
+    }
+  });  

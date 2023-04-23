@@ -46,3 +46,16 @@ nav {
     background-color: #f2f2f2;
     color: #444;
   }
+
+  #display-area {
+    width: 400px;
+    height: 200px;
+    background-color: #eee;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #444;
+  }
