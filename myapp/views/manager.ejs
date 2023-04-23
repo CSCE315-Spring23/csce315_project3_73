@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <head>
   <title>Manager</title>
-  <link href="manager.css" rel="stylesheet" type="text/css" /> 
+  <link href="manager.css" rel="stylesheet" type="text/css" />
+  <script src="manager.js"></script> 
 </head>
 <body>
   <nav>
@@ -25,6 +26,21 @@
   <div id="display-area">
     <p>Select an option from the drop-down.</p>
   </div>
+  <script>
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const displayArea = document.getElementById("display-area");
+
+    dropdownMenu.addEventListener("change", () => {
+      const selectedOption = dropdownMenu.value;
+
+      if (selectedOption === "option1") {
+        displayArea.innerHTML = "<p>This is the content for option 1.</p>";
+      } else if (selectedOption === "option2") {
+        displayArea.innerHTML = "<p>This is the content for option 2.</p>";
+      } else if (selectedOption === "option3") {
+        displayArea.innerHTML = "<p>This is the content for option 3.</p>";
+      }
+    });
+  </script>
  
-  <script src="script.js"></script>
 </body>
