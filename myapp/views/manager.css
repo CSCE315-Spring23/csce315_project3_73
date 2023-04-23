@@ -28,3 +28,21 @@ nav {
     background-color: white;
     color: black;
   }
+
+
+  .dropdown select {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #f2f2f2;
+    color: #444;
+  }
+  
+  .dropdown select option {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #f2f2f2;
+    color: #444;
+  }
