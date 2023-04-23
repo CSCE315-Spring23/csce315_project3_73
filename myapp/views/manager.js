@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
  
   
-  const dropdownMenu = document.getElementById("dropdown");
+  const dropdownMenu = document.getElementById("dropdown-menu");
   const displayArea = document.getElementById("display-area");
 
   dropdownMenu.addEventListener("change", () => {
@@ -31,4 +31,4 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (selectedOption === "option3") {
       displayArea.innerHTML = "<p>This is the content for option 3.</p>";
     }
-  });  
+  });
