@@ -175,6 +175,7 @@ app.get("/manager", (req, res) => {
               menuitems: menuitems,
               inventoryitems: inventoryitems,
             };
+            console.log(data);
             res.render("manager", data);
           })
           .catch((error) => {
