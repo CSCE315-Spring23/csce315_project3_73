@@ -26,11 +26,11 @@
   <select id="inventoryitems-dropdown">
     <option value="none">Select Inventory Item...</option>
     <% for(let i=0; i<inventoryitems.length; i++) { %>
-      <option value="<%= inventoryitems[i].id %>"><%= inventoryitems[i].name %></option>
+      <option value="<%= inventoryitems[i].invid %>"><%= inventoryitems[i].itemname %></option>
 
     <% } %>
   </select>
-  
+
   <div id="display-area">
      
     <div id="edit-inventory" style="display: none">
@@ -39,7 +39,7 @@
       <select id="inventoryitems-dropdown">
         <option value="none">Select Inventory Item...</option>
         <% for(let i=0; i<inventoryitems.length; i++) { %>
-          <option value="<%= inventoryitems[i].id %>"><%= inventoryitems[i].name %></option>
+          <option value="<%= inventoryitems[i].invid %>"><%= inventoryitems[i].itemname %></option>
     
         <% } %>
       </select>
@@ -50,7 +50,7 @@
       <select id="menuitems-dropdown">
         <option value="none">Select Menu Item...</option>
         <% for(let i=0; i<menuitems.length; i++) { %>
-          <option value="<%= menuitems[i].id %>"><%= menuitems[i].name %></option>
+          <option value="<%= menuitems[i].menuid %>"><%= menuitems[i].itemname %></option>
         <% } %>
       </select>
     </div>
