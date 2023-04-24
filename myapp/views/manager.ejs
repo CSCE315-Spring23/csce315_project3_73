@@ -23,6 +23,14 @@
     </select>
   </div>
 
+  <select id="inventoryitems-dropdown">
+    <option value="none">Select Inventory Item...</option>
+    <% for(let i=0; i<inventoryitems.length; i++) { %>
+      <option value="<%= inventoryitems[i].id %>"><%= inventoryitems[i].name %></option>
+
+    <% } %>
+  </select>
+  
   <div id="display-area">
      
     <div id="edit-inventory" style="display: none">
@@ -32,7 +40,7 @@
         <option value="none">Select Inventory Item...</option>
         <% for(let i=0; i<inventoryitems.length; i++) { %>
           <option value="<%= inventoryitems[i].id %>"><%= inventoryitems[i].name %></option>
-          console.log(<%= inventoryitems[i].name %>);
+    
         <% } %>
       </select>
     </div>
