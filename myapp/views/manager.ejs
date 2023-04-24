@@ -24,13 +24,14 @@
   </div>
 
   <div id="display-area">
-    <p>Select an option from the drop-down.</p>
+     
     <div id="edit-inventory" style="display: none">
       <!-- HTML elements for editing inventory -->
       <select id="inventoryitems-dropdown">
         <option value="none">Select Inventory Item...</option>
         <% for(let i=0; i<inventoryitems.length; i++) { %>
           <option value="<%= inventoryitems[i].id %>"><%= inventoryitems[i].name %></option>
+          console.log(<%= inventoryitems[i].name %>);
         <% } %>
       </select>
     </div>
