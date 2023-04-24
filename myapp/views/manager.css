@@ -29,7 +29,9 @@ nav {
     color: black;
   }
 
-
+  .dropdown {
+    display: block; 
+  }
   .dropdown select {
     width: 200px;
     padding: 10px;

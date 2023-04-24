@@ -61,37 +61,37 @@
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-  const dropdownMenu = document.getElementById("dropdown-menu");
-  const displayArea = document.getElementById("display-area");
+      const dropdownMenu = document.getElementById("dropdown-menu");
+      const displayArea = document.getElementById("display-area");
 
-  const editInventory = document.getElementById("edit-inventory");
-  const editMenu = document.getElementById("edit-menu");
-  const runReports = document.getElementById("run-reports");
+      const editInventory = document.getElementById("edit-inventory");
+      const editMenu = document.getElementById("edit-menu");
+      const runReports = document.getElementById("run-reports");
 
-  dropdownMenu.addEventListener("change", () => {
-    const selectedOption = dropdownMenu.value;
+      dropdownMenu.addEventListener("change", () => {
+        const selectedOption = dropdownMenu.value;
 
-    if (selectedOption === "option1") {
-      displayArea.innerHTML = "Edit Inventory";
-      editInventory.style.display = "block";
-      editMenu.style.display = "none";
-      runReports.style.display = "none";
-    } else if (selectedOption === "option2") {
-      displayArea.innerHTML = "Edit Menu";
-      editInventory.style.display = "none";
-      editMenu.style.display = "block";
-      runReports.style.display = "none";
-    } else if (selectedOption === "option3") {
-      displayArea.innerHTML = "Run Reports";
-      editInventory.style.display = "none";
-      editMenu.style.display = "none";
-      runReports.style.display = "block";
-    } else {
-      displayArea.innerHTML = "Select an option from the drop-down.";
-      editInventory.style.display = "none";
-      editMenu.style.display = "none";
-      runReports.style.display = "none";
-    }
+        if (selectedOption === "option1") {
+          displayArea.innerHTML = "Edit Inventory";
+          editInventory.style.display = "block";
+          editMenu.style.display = "none";
+          runReports.style.display = "none";
+        } else if (selectedOption === "option2") {
+          displayArea.innerHTML = "Edit Menu";
+          editInventory.style.display = "none";
+          editMenu.style.display = "block";
+          runReports.style.display = "none";
+        } else if (selectedOption === "option3") {
+          displayArea.innerHTML = "Run Reports";
+          editInventory.style.display = "none";
+          editMenu.style.display = "none";
+          runReports.style.display = "block";
+        } else {
+          displayArea.innerHTML = "Select an option from the drop-down.";
+          editInventory.style.display = "none";
+          editMenu.style.display = "none";
+          runReports.style.display = "none";
+        }
   });
 });
 
