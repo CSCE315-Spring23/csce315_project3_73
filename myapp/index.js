@@ -168,14 +168,14 @@ app.get("/manager", (req, res) => {
           .query("SELECT * FROM inventory;")
           .then((inventory_query_res) => {
             for (let i = 0; i < inventory_query_res.rowCount; i++) {
+              console.log(inventory_query_res.rows[i]);
               inventoryitems.push(inventory_query_res.rows[i]);
             }
             // Send data to the manager view
             const data = {
               menuitems: menuitems,
               inventoryitems: inventoryitems,
-            };
-            console.log(data);
+            }; 
             res.render("manager", data);
           })
           .catch((error) => {
