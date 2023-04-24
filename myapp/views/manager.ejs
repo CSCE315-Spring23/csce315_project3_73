@@ -27,15 +27,14 @@
     <p>Select an option from the drop-down.</p>
     <div id="edit-inventory" style="display: none">
       <!-- HTML elements for editing inventory -->
-
-<select id="inventoryitems-dropdown">
-  <option value="none">Select Inventory Item.../option>
-  <% for(let i=0; i<inventoryitems.length; i++) { %>
-    <option value="<%= inventoryitems[i].id %>"><%= inventoryitems[i].name %></option>
-  <% } %>
-</select>
+      <select id="inventoryitems-dropdown">
+        <option value="none">Select Inventory Item...</option>
+        <% for(let i=0; i<inventoryitems.length; i++) { %>
+          <option value="<%= inventoryitems[i].id %>"><%= inventoryitems[i].name %></option>
+        <% } %>
+      </select>
     </div>
-
+    
     <div id="edit-menu" style="display: none">
       <!-- HTML elements for editing menu -->
       <select id="menuitems-dropdown">
@@ -77,6 +76,7 @@
         editMenu.style.display = "none";
         runReports.style.display = "block";
       } else {
+        displayArea.innerHTML = "Select an option from the drop-down.";
         editInventory.style.display = "none";
         editMenu.style.display = "none";
         runReports.style.display = "none";
