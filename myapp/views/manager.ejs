@@ -27,10 +27,23 @@
     <p>Select an option from the drop-down.</p>
     <div id="edit-inventory" style="display: none">
       <!-- HTML elements for editing inventory -->
+
+<select id="inventoryitems-dropdown">
+  <option value="none">Select Inventory Item.../option>
+  <% for(let i=0; i<inventoryitems.length; i++) { %>
+    <option value="<%= inventoryitems[i].id %>"><%= inventoryitems[i].name %></option>
+  <% } %>
+</select>
     </div>
 
     <div id="edit-menu" style="display: none">
       <!-- HTML elements for editing menu -->
+      <select id="menuitems-dropdown">
+        <option value="none">Select Menu Item...</option>
+        <% for(let i=0; i<menuitems.length; i++) { %>
+          <option value="<%= menuitems[i].id %>"><%= menuitems[i].name %></option>
+        <% } %>
+      </select>
     </div>
 
     <div id="run-reports" style="display: none">

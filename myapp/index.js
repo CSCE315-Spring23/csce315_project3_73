@@ -1,4 +1,4 @@
-const express = require("express"); 
+const express = require("express");
 //const fetch = require('node-fetch');
 
 const { Pool } = require("pg");
@@ -9,7 +9,7 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const session = require("express-session");
 
 function delay(time) {
-  return new Promise(resolve => setTimeout(resolve, time));
+  return new Promise((resolve) => setTimeout(resolve, time));
 }
 
 // Create express app
@@ -59,22 +59,26 @@ passport.use(
       clientID:
         "947810255577-aggap7cvgjsnk288h2opb13igc811d0s.apps.googleusercontent.com",
       clientSecret: "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",
-      callbackURL: "https://csce315-project3-73.onrender.com/auth/google/callback",
+      callbackURL:
+        "https://csce315-project3-73.onrender.com/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       // This function will be called after successful authentication
       // You can use the "profile" object to get information about the authenticated user
       firstName = profile.name.givenName.toLowerCase();
       lastName = profile.name.familyName.toLowerCase();
-      pool.query(`SELECT * FROM employees WHERE LOWER(firstname)='${firstName}' AND LOWER(lastname)='${lastName}'`)
+      pool
+        .query(
+          `SELECT * FROM employees WHERE LOWER(firstname)='${firstName}' AND LOWER(lastname)='${lastName}'`
+        )
         .then((result) => {
           if (result.rowCount > 0 && result.rows[0].isadmin) {
-            isAdmin = true; 
-          }else if(result.rowCount > 0 &&  result.rows[0].isadmin == false){ 
+            isAdmin = true;
+          } else if (result.rowCount > 0 && result.rows[0].isadmin == false) {
             isServer = true;
-          }else{
+          } else {
             isCustomer = true;
-          } 
+          }
           done(null, profile);
         })
         .catch((error) => {
@@ -106,25 +110,22 @@ app.get(
     // Redirect the user to the home page or some other page
     if (isAdmin) {
       res.redirect("/manager");
-    } else if(isCustomer){
+    } else if (isCustomer) {
       res.redirect("/customer");
-    } else if(isServer){
+    } else if (isServer) {
       res.redirect("/order");
     }
-     
   }
 );
 ///////////////////////
 ///////////////////////
 
-const ensureAuthenticated = async(req, res, next) => { 
+const ensureAuthenticated = async (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
   res.redirect("/auth/google");
 };
-
- 
 
 ////////////////////////
 
@@ -142,7 +143,7 @@ app.get("/order", ensureAuthenticated, (req, res) => {
       const data = { menuitems: menuitems };
       res.render("order", data);
     });
-  }else{
+  } else {
     res.render("customer", data);
   }
 });
@@ -152,9 +153,40 @@ app.get("/order", ensureAuthenticated, (req, res) => {
 //   }
 // });
 app.get("/manager", (req, res) => {
-  if(isAdmin){
-    res.render("manager");
-  } else{
+  if (isAdmin) {
+    // Query menu items
+    const menuitems = [];
+    pool
+      .query("SELECT * FROM menu;")
+      .then((menu_query_res) => {
+        for (let i = 0; i < menu_query_res.rowCount; i++) {
+          menuitems.push(menu_query_res.rows[i]);
+        }
+        // Query inventory items
+        const inventoryitems = [];
+        pool
+          .query("SELECT * FROM inventory;")
+          .then((inventory_query_res) => {
+            for (let i = 0; i < inventory_query_res.rowCount; i++) {
+              inventoryitems.push(inventory_query_res.rows[i]);
+            }
+            // Send data to the manager view
+            const data = {
+              menuitems: menuitems,
+              inventoryitems: inventoryitems,
+            };
+            res.render("manager", data);
+          })
+          .catch((error) => {
+            console.error(error);
+            res.render("error");
+          });
+      })
+      .catch((error) => {
+        console.error(error);
+        res.render("error");
+      });
+  } else {
     res.render("order");
   }
 });
