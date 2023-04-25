@@ -29,7 +29,7 @@ function handleDelete() {
   if(lastPrice.length === 0){
 
   }else{
-    currOrderTotal -= lastPrice.pop();
+    currOrderTotal  = Math.abs(  currOrderTotal - lastPrice.pop());
     totalPriceDiv.textContent= "$" + currOrderTotal.toFixed(2);
    
 }
