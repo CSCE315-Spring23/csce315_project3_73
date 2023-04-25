@@ -2,17 +2,110 @@
 <head>
   <title>Manager</title>
   <link href="manager.css" rel="stylesheet" type="text/css" />
-  <script src="manager.js"></script> 
+  <link rel="shortcut icon" type="image/png" href="images/smalllogo.png">
+  <script src="manager.js"></script>
 </head>
 <body>
   <nav>
     <ul>
-      <li><a href="/order">Place Order</a></li> 
+      <li><a href="/order">Place Order</a></li>
     </ul>
   </nav>
-  <br>
+  <br />
   Hello Manager!
   <div id="weather">Weather</div>
+  <br />
+  <div class="dropdown">
+    <select id="dropdown-menu">
+      <option value="option0">Please Select...</option>
+      <option value="option1">Edit Inventory</option>
+      <option value="option2">Edit Menu</option>
+      <option value="option3">Run Reports</option>
+    </select>
+  </div> 
+
+  <div id="display-area">
      
+    <div id="edit-inventory" style="display: none">
+      
+      <!-- HTML elements for editing inventory -->
+      <select id="inventoryitems-dropdown">
+        <option value="none">Select Inventory Item...</option>
+        <% for(let i=0; i<inventoryitems.length; i++) { %>
+          <option value="<%= inventoryitems[i].invid %>"><%= inventoryitems[i].itemname %></option>
+    
+        <% } %>
+      </select>
+
+    </div>
+    
+    <div id="edit-menu" style="display: none">
+      <!-- HTML elements for editing menu -->
+      <select id="menuitems-dropdown">
+        <option value="none">Select Menu Item...</option>
+        <% for(let i=0; i<menuitems.length; i++) { %>
+          <option value="<%= menuitems[i].menuid %>"><%= menuitems[i].itemname %></option>
+        <% } %>
+      </select>
+    </div>
+
+    <div id="run-reports" style="display: none">
+      <!-- HTML elements for running reports -->
+    </div>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  const displayArea = document.getElementById("display-area");
+
+  const editInventory = document.getElementById("edit-inventory");
+  const editMenu = document.getElementById("edit-menu");
+  const runReports = document.getElementById("run-reports");
+
+  const inventoryDropdown = document.getElementById("inventoryitems-dropdown");
+  const menuDropdown = document.getElementById("menuitems-dropdown");
+
+  dropdownMenu.addEventListener("change", () => {
+    const selectedOption = dropdownMenu.value;
+    displayArea.innerHTML = '';
+    if (selectedOption === "option1") {
+      editInventory.style.display = "block";
+      editMenu.style.display = "none";
+      runReports.style.display = "none";
+
+      // Move inventory dropdown inside display area
+      displayArea.appendChild(inventoryDropdown);
+    } else if (selectedOption === "option2") {
+      editInventory.style.display = "none";
+      editMenu.style.display = "block";
+      runReports.style.display = "none";
+
+      // Move menu dropdown inside display area
+      displayArea.appendChild(menuDropdown);
+    } else if (selectedOption === "option3") {
+      editInventory.style.display = "none";
+      editMenu.style.display = "none";
+      runReports.style.display = "block";
+    } else {
+      editInventory.style.display = "none";
+      editMenu.style.display = "none";
+      runReports.style.display = "none";
+    }
+  });
+
+  // Move inventory dropdown inside display area when selected
+  inventoryDropdown.addEventListener("change", () => {
+    const selectedOption = inventoryDropdown.value;
+    // Do something with selected option
+  });
+
+  // Move menu dropdown inside display area when selected
+  menuDropdown.addEventListener("change", () => {
+    const selectedOption = menuDropdown.value;
+    // Do something with selected option
+  });
+});
+
+
+  </script>
 </body>

@@ -1,1 +1,53 @@
- 
+--------------------------------------------------------
+Here are our notes from meeting two of sprint 2:
+-------------------------------------------------------- 
+Agenda:
+-------------------------------------------------------- 
+
+Is there anything preventing contributors from getting work done? 
+
+What did you do yesterday?
+
+What are you doing today?
+
+How confident are you about our goals for the sprint?
+
+
+--------------------------------------------------------
+Nitesh
+--------------------------------------------------------
+Nitesh went first. He practiced with HTML and CSS and gained some knowledge on how to beautify the website.
+
+He has completed the navigation bar and is working with Lucas on creating the manager view. 
+
+Nitesh also plans on adding the delete order from the list.
+
+Nitesh is slightly not confident that we may be able to pull through this sprint due to the massive number of tasks.
+--------------------------------------------------------
+Lucas
+--------------------------------------------------------
+Lucas went next. He went over the api keys over the weekend and figured what he needed to do.  
+
+Lucas completed implementing the API keys and OAuth login and was also working with Nitesh in creating the manager view.
+
+Today, Lucas plans on being able to include reports in the manager view.
+
+Lucas is confident that we can pull through for the sprint even if we have a lot more tasks.
+--------------------------------------------------------
+Tyler 
+--------------------------------------------------------
+Tyler went last. He had also brushed up on the different APIs and came prepared for the next meeting.
+
+He completed adding the weather api to the website, the server orders, and connecting it to the SQL database.
+
+Today, he was working with Lucas on efficiently including the sales and the restock reports in the manager view.
+
+Tyler is also confident that the team can finish the tasks on time given we keep working diligently.
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+Ending Notes;
+--------------------------------------------------------
+Overall this meeting was good as we had made significant progress in our sprint 2.
+We think we are on good pace to finish our delivarables.
+--------------------------------------------------------

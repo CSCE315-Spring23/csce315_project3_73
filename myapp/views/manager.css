@@ -28,3 +28,36 @@ nav {
     background-color: white;
     color: black;
   }
+
+  .dropdown {
+    display: block; 
+  }
+  .dropdown select {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #f2f2f2;
+    color: #444;
+  }
+  
+  .dropdown select option {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #f2f2f2;
+    color: #444;
+  }
+
+  #display-area {
+    width: 800x;
+    height: 400px;
+    background-color: #eee;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #444;
+  }
