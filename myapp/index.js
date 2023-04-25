@@ -147,6 +147,18 @@ app.get("/order", ensureAuthenticated, (req, res) => {
     res.render("customer", data);
   }
 });
+
+app.get("/customer", ensureAuthenticated, (req, res) => {
+ 
+    menuitems = [];
+    pool.query("SELECT * FROM menu;").then((query_res) => {
+      for (let i = 0; i < query_res.rowCount; i++) {
+        menuitems.push(query_res.rows[i]);
+      }
+      const data = { menuitems: menuitems };
+      res.render("order", data);
+    }); 
+});
 // app.get("/manager", ensureAuthenticated, (req, res) => {
 //   if (isAdmin) {
 //     res.render("manager");

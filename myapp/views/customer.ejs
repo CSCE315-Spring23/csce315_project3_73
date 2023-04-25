@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <head>
-  <title>Order</title>
-  <link href="order.css" rel="stylesheet" type="text/css" />
+  <title>Customer</title>
+  <link href="customer.css" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" type="image/png" href="images/smalllogo.png">
-  <script src="order.js"></script>
+  <script src="customer.js"></script>
 </head>
 <body>
   <nav>
     <ul>
-      <li><a href="/manager">Manager View</a></li> 
+      <li><a href="/menu">Menu</a></li> 
     </ul>
   </nav>
   <br>
@@ -17,6 +17,8 @@
       <% for (var i in menuitems) { %>
       <button onclick="handleClick('<%= menuitems[i].itemname %>')">
         <%= menuitems[i].itemname %> 
+        <br>
+        $<%= menuitems[i].itemprice %> 
       </button>
       <% } %>
     </div>
