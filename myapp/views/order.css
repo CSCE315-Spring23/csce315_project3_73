@@ -97,6 +97,7 @@ a:hover {
   height: 100%; 
   background-color: transparent;
   font-size: 1.2rem;
+  margin-left: 20px;
 }
 
 .text-box button{
