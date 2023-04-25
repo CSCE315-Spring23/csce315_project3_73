@@ -13,7 +13,7 @@ function handleClick(itemId, itemPrice) {
   currOrderTotal += parseFloat(itemPrice);
   lastClicked = itemId;
   lastPrice.push(parseFloat(itemPrice));
-  totalPriceDiv.textContent= "$" + currOrderTotal;
+  totalPriceDiv.textContent= "$" + currOrderTotal.toFixed(2);
   currOrder.push(itemId);
 }
 
