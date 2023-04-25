@@ -1,7 +1,7 @@
 currOrder = [];
 currOrderId = null;
 var currOrderTotal = 0.0
-lastPrice = 0.0
+lastPrice = [];
 
 function handleClick(itemId, itemPrice) {
   // Get the input element by its ID
@@ -12,7 +12,7 @@ function handleClick(itemId, itemPrice) {
   textArea.value += itemId + "\n";
   currOrderTotal += parseFloat(itemPrice);
   lastClicked = itemId;
-  lastPrice = parseFloat(itemPrice);
+  lastPrice.push(parseFloat(itemPrice));
   totalPriceDiv.textContent= "$" + currOrderTotal;
   currOrder.push(itemId);
 }
@@ -25,8 +25,14 @@ function handleDelete() {
   for (var i = 0; i < currOrder.length; i++) {
     textArea.value += currOrder[i] + "\n";
   }
-  currOrderTotal -= lastPrice;
-  totalPriceDiv.textContent= "$" + currOrderTotal;
+  
+  if(lastPrice.length === 0){
+
+  }else{
+    currOrderTotal -= lastPrice.pop();
+    totalPriceDiv.textContent= "$" + currOrderTotal.toFixed(2);
+   
+}
 }
 async function handleOrder() {
   var textArea = document.getElementsByTagName("textarea")[0];
@@ -96,5 +102,6 @@ async function handleOrder() {
   currOrder.splice(0, currOrder.length);
   currOrderId++;
   currOrderTotal = 0.0;
-  totalPriceDiv.textContent= "$" + currOrderTotal;
+  lastPrice = [];
+  totalPriceDiv.textContent= "$" + currOrderTotal.toFixed(2);
 }
