@@ -17,6 +17,7 @@
       <% for (var i in menuitems) { %>
       <button onclick="handleClick('<%= menuitems[i].itemname %>')">
         <%= menuitems[i].itemname %>
+        <%= menuitems[i].itemprice%>
       </button>
       <% } %>
     </div>
