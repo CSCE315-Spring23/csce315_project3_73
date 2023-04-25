@@ -1,13 +1,19 @@
 currOrder = [];
 currOrderId = null;
+currOrderTotal = 0.0
+lastPrice = 0.0
 
-function handleClick(itemId) {
+function handleClick(itemId, itemPrice) {
   // Get the input element by its ID
   var textArea = document.getElementsByTagName("textarea")[0];
+  const totalPriceDiv = document.getElementsByClassName('totalPrice')[0];
 
   // Change the value of the text area element to display the item name
   textArea.value += itemId + "\n";
+  currOrderTotal += itemPrice;
   lastClicked = itemId;
+  lastPrice = itemPrice;
+  totalPriceDiv.textContent= "$" + currOrderTotal;
   currOrder.push(itemId);
 }
 
@@ -18,6 +24,8 @@ function handleDelete() {
   for (var i = 0; i < currOrder.length; i++) {
     textArea.value += currOrder[i] + "\n";
   }
+  currOrderTotal -= lastPrice;
+  totalPriceDiv.textContent= "$" + currOrderTotal;
 }
 async function handleOrder() {
   var textArea = document.getElementsByTagName("textarea")[0];

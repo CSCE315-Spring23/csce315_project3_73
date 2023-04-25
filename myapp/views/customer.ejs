@@ -15,7 +15,7 @@
   <div class="container">
     <div class="button-grid">
       <% for (var i in menuitems) { %>
-      <button onclick="handleClick('<%= menuitems[i].itemname %>')">
+      <button  onclick="handleClick('<%= menuitems[i].itemname %>', '<%= menuitems[i].itemprice %>')">
         <%= menuitems[i].itemname %> 
         <br>
         $<%= menuitems[i].itemprice %> 
@@ -34,6 +34,7 @@
       <br>
       <button onclick="handleDelete()">Delete</button>
       <button onclick="handleOrder()">Place Order</button>  
+      <div class="totalPrice"></div>
     </div>
   </div>
 </body>
