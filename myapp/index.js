@@ -156,7 +156,7 @@ app.get("/customer", ensureAuthenticated, (req, res) => {
         menuitems.push(query_res.rows[i]);
       }
       const data = { menuitems: menuitems };
-      res.render("order", data);
+      res.render("customer", data);
     }); 
 });
 // app.get("/manager", ensureAuthenticated, (req, res) => {
