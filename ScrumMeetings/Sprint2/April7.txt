@@ -1,0 +1,54 @@
+--------------------------------------------------------
+Here are our notes from meeting one of sprint 2:
+-------------------------------------------------------- 
+Agenda:
+-------------------------------------------------------- 
+
+Is there anything preventing contributors from getting work done? 
+
+What did you do yesterday?
+
+What are you doing today?
+
+How confident are you about our goals for the sprint?
+
+ 
+--------------------------------------------------------
+Tyler 
+--------------------------------------------------------
+Tyler went first. He talked about the things that prevented him from getting work done. This was mainly about different APIs and implementation,
+since he was a little iffy on these topics.
+
+He has been working on creating weather api keys and setting up the back end request to the API.
+
+Today he worked on finishing up weather api and creating a simple route to the manager view for it.
+
+He stated that he is confident that he will finish his tasks and the team will complete their goals for the sprint.
+--------------------------------------------------------
+Nitesh
+--------------------------------------------------------
+Nitesh went next. He talked about his struggles with front end and he is trying to learn HTML and CSS so that he can better help our team.
+
+Yesterday Nitesh worked on learning HTML and CSS, and started applying some of this knowledge to create nav bar.
+
+Today he going to work on finish the navigation bar and also help Lucas start the OAuth Login.
+
+Nitesh is somewhat confident we can pull through for this sprint, but he is scared that we took on too much work.
+--------------------------------------------------------
+Lucas
+--------------------------------------------------------
+Lucas went last. He talked about how he needed Tyler to create the api keys before he could do his part.  
+
+Yesterday he watched videos teaching him how to implement api in nodejs applications, while he was waiting for me to create keys.
+
+Today, he plans to implement the API so long as Tyler has created the API keys and project. 
+
+He is confident we will finish our goals because he has a lot of time to work on it compared to last sprint.
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+Ending Notes;
+--------------------------------------------------------
+Overall this meeting was good in identifying what needs to be done in our project to propel us towards the finish line.
+We think we are on good pace to finish our delivarables.
+--------------------------------------------------------
