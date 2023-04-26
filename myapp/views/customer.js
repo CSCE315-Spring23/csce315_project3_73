@@ -1,26 +1,43 @@
 currOrder = [];
 currOrderId = null;
+var currOrderTotal = 0.0
+lastPrice = [];
 
-function handleClick(itemId) {
+function handleClick(itemId, itemPrice) {
   // Get the input element by its ID
   var textArea = document.getElementsByTagName("textarea")[0];
+  const totalPriceDiv = document.getElementsByClassName('totalPrice')[0];
 
   // Change the value of the text area element to display the item name
   textArea.value += itemId + "\n";
+  currOrderTotal += parseFloat(itemPrice);
   lastClicked = itemId;
+  lastPrice.push(parseFloat(itemPrice));
+  totalPriceDiv.textContent= "$" + currOrderTotal.toFixed(2);
   currOrder.push(itemId);
 }
 
 function handleDelete() {
   var textArea = document.getElementsByTagName("textarea")[0];
+  const totalPriceDiv = document.getElementsByClassName('totalPrice')[0];
   textArea.value = "";
   currOrder.pop();
   for (var i = 0; i < currOrder.length; i++) {
     textArea.value += currOrder[i] + "\n";
   }
+  
+  if(lastPrice.length === 0){
+    currOrderTotal = 0.0
+    totalPriceDiv.textContent= "$" + currOrderTotal.toFixed(2);
+  }else{
+    currOrderTotal  = Math.abs(  currOrderTotal - lastPrice.pop());
+    totalPriceDiv.textContent= "$" + currOrderTotal.toFixed(2);
+   
+}
 }
 async function handleOrder() {
   var textArea = document.getElementsByTagName("textarea")[0];
+  const totalPriceDiv = document.getElementsByClassName('totalPrice')[0];
 
   if (textArea.value == "") {
     return;
@@ -85,4 +102,7 @@ async function handleOrder() {
    
   currOrder.splice(0, currOrder.length);
   currOrderId++;
+  currOrderTotal = 0.0;
+  lastPrice = [];
+  totalPriceDiv.textContent= "$" + currOrderTotal.toFixed(2);
 }
