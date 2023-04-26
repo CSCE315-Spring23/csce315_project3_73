@@ -1,1 +1,3 @@
 /myapp/node_modules/
+/myapp/.env
+*-lock.json
