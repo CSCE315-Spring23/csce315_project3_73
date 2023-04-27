@@ -16,9 +16,7 @@
   <div class="container">
     <div class="button-grid">
       <% for (var i in menuitems) { %>
-        <button  onclick="handleClick('<%= menuitems[i].itemname %>', '<%= menuitems[i].itemprice %>')" >
-          <img src= '<%= menuitems[i].pics %>' width="50" height="50" alt="Item">
-          <br>
+        <button style="background-image: url('<%= menuitems[i].pics %>');" onclick="handleClick('<%= menuitems[i].itemname %>', '<%= menuitems[i].itemprice %>')" >
           <%= menuitems[i].itemname %>
           <br>
           $<%= menuitems[i].itemprice %>
