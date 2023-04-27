@@ -45,14 +45,14 @@ nav {
   }
   
   .button-grid button {
-    /* background-color: #61acf2; */
+    background-color: #61acf2;  
     color: white;
     border: none;
     padding: 1rem;
     font-size: 1.2rem;
     text-align: center;
     width: 100%;
-    height: 100%;
+    height: 110%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
