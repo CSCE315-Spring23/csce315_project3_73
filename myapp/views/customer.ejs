@@ -16,11 +16,11 @@
   <div class="container">
     <div class="button-grid">
       <% for (var i in menuitems) { %>
-      <button class="menu-button" onclick="handleClick('<%= menuitems[i].itemname %>', '<%= menuitems[i].itemprice %>')">
-        <%= menuitems[i].itemname %> 
-        <br>
-        $<%= menuitems[i].itemprice %> 
-      </button>
+        <button onclick="handleClick('<%= menuitems[i].itemname %>', '<%= menuitems[i].itemprice %>')" style="background-image: url('<%= menuitems[i].pics %>'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+          <%= menuitems[i].itemname %>
+          <br>
+          $<%= menuitems[i].itemprice %>
+        </button>
       <% } %>
     </div>
     <div class="text-box">

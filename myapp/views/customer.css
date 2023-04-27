@@ -11,20 +11,7 @@ nav {
     margin: 0;
     padding: 0;
     display: flex;
-  }
-  .menu-button {
-    background-image: url('<%= menuitems[i].pics %>');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    /* Add any additional styling you want for the button */
-  } 
-  
-  
-  
-  
-  
-  
+  }  
   li {
     margin: 0 10px;
   }
