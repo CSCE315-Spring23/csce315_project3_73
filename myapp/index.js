@@ -136,7 +136,7 @@ app.get("/", (req, res) => {
 app.get("/order", ensureAuthenticated, (req, res) => {
   if (isAdmin || isServer) {
     menuitems = [];
-    pool.query("SELECT * FROM menu;").then((query_res) => {
+    pool.query("SELECT * FROM menu ORDER BY itemname;").then((query_res) => {
       for (let i = 0; i < query_res.rowCount; i++) {
         menuitems.push(query_res.rows[i]);
       }
@@ -151,7 +151,7 @@ app.get("/order", ensureAuthenticated, (req, res) => {
 app.get("/customer", ensureAuthenticated, (req, res) => {
  
     menuitems = [];
-    pool.query("SELECT * FROM menu;").then((query_res) => {
+    pool.query("SELECT * FROM menu ORDER BY itemname;").then((query_res) => {
       for (let i = 0; i < query_res.rowCount; i++) {
         menuitems.push(query_res.rows[i]);
       }
@@ -181,7 +181,7 @@ app.get("/manager", (req, res) => {
     // Query menu items
     const menuitems = [];
     pool
-      .query("SELECT * FROM menu;")
+      .query("SELECT * FROM menu ORDER BY itemname;")
       .then((menu_query_res) => {
         for (let i = 0; i < menu_query_res.rowCount; i++) {
           menuitems.push(menu_query_res.rows[i]);
