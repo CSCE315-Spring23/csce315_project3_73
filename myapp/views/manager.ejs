@@ -55,7 +55,7 @@
         <select id="report-dropdown">
           <option value="option0">Please Select...</option>
           <option value="option1">X Report</option>
-            <option value="option2">Z Report</option>
+          <option value="option2">Z Report</option>
           <option value="option3">Restock Report</option>
           <option value="option4">Excess Report</option>
         </select>
@@ -95,6 +95,7 @@
       editInventory.style.display = "none";
       editMenu.style.display = "none";
       runReports.style.display = "block";
+      displayArea.appendChild(runReports);
     } else {
       editInventory.style.display = "none";
       editMenu.style.display = "none";
