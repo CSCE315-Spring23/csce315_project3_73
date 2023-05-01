@@ -163,7 +163,7 @@ app.get("/customer", ensureAuthenticated, (req, res) => {
 app.get("/menu", (req, res) => {
  
   menuitems = [];
-  pool.query("SELECT * FROM menu;").then((query_res) => {
+  pool.query("SELECT * FROM menu ORDER BY itemname;").then((query_res) => {
     for (let i = 0; i < query_res.rowCount; i++) {
       menuitems.push(query_res.rows[i]);
     }
