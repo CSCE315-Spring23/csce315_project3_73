@@ -82,6 +82,8 @@ async function handleOrder() {
 
   const formattedDate = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 
+  //howdy
+
   const query3 = encodeURIComponent(
     "INSERT INTO orders VALUES (" +
       currOrderId +
