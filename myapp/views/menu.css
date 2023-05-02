@@ -30,9 +30,13 @@ nav {
   
   
   .container {
+    position: relative;
     display: flex;
     justify-content: space-between;
+    grid-template-columns: repeat(10, 1fr);
+    grid-auto-rows: 100px;
     align-items: center;
     width: 80%;
+    grid-gap:1rem;
   }
   
