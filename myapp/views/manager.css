@@ -51,7 +51,7 @@ nav {
 
   #display-area {
     width: 800x;
-    height: 400px;
+    height: 600px;
     background-color: #eee;
     padding: 20px;
     margin-top: 20px;
@@ -62,8 +62,9 @@ nav {
     color: #444;
   }
 
-  #output-report {
-    white-space: nowrap;
-    border-color:#444;
+  #output-report { 
+    border-color: #444;
     border-width: 1px;
+    border-style: solid;
   }
+  
