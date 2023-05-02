@@ -19,7 +19,7 @@
     <div class="container">
       <div class="left">
         <div class="smoothie">
-          <h2>Smoothie</h2>
+          <h2>Smoothies</h2>
           <ul>
             <% for (var i in menuitems) { %>
             <% if (menuitems[i].category == "Smoothie") { %>
@@ -41,31 +41,43 @@
       </div>
   
       <div class="right">
-        <div class="column">
-          <h2>Snack</h2>
-          <ul>
-            <% for (var i in menuitems) { %>
-            <% if (menuitems[i].category == "Snack") { %>
-            <%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %>
+        <div class="snack">
+          <div class="snack_list">
+            <h2>Snacks</h2>
+            <ul>
+                <% for (var i in menuitems) { %>
+                <% if (menuitems[i].category == "Snack") { %>
+                <%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %>
+                <br>
+                <% } %>
+                <% } %>
+            </ul>
             <br>
-            <% } %>
-            <% } %>
-          </ul>
-          <br>
+          </div>
+
+          <div class="snack_pic">
+            <img src="https://olo-images-live.imgix.net/26/2605a095ddb145af817eee56b3da4484.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=528&h=352&fit=fill&fm=png32&bg=transparent&s=2cffbe8249796b2dabb85c3df8f948d8" height="150" weigth="150" alt="Image 2">
+          </div>
         </div>
-        <div class="column">
-          <h2>Protein Smoothie</h2>
-          <ul>
-            <% for (var i in menuitems) { %>
-            <% if (menuitems[i].category == "Protein Smoothie") { %>
-            <%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %>
-            <br>
-            <% } %>
-            <% } %>
-          </ul>
+            <div class="protein">
+                <div class="protein_pic">
+                    <img src="https://cdn.smoothieking.com/images/smoothies/cups-ingredients/sk-fitness-coffee-high-protein-almond-mocha-with-ingredients.png" height="150" weigth="150" alt="Image 2">
+                </div>
+                <div class="protein_list">
+                    <h2>Protein Smoothies</h2>
+                    <ul>
+                      <% for (var i in menuitems) { %>
+                      <% if (menuitems[i].category == "Protein Smoothie") { %>
+                      <%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %>
+                      <br>
+                      <% } %>
+                      <% } %>
+                    </ul>
+                </div>
+    
         </div>
-        <div class="column">
-          <h2>Recovery Smoothie</h2>
+        <div class="recovery">
+          <h2>Recovery Smoothies</h2>
           <ul>
             <% for (var i in menuitems) { %>
             <% if (menuitems[i].category == "Recovery Smoothie") { %>
