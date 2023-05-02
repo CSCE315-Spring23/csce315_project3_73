@@ -45,6 +45,9 @@ function deleteItem() {
 }
 
 function editItem() {
+  if(selectedValue == "ADD" || selectedValue == "ADD"){
+    return;
+  }
   const selectedValue = parseInt(
     document.getElementById("inventoryitems-dropdown").value,
     10
