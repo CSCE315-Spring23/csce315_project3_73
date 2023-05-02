@@ -10,6 +10,7 @@ nav {
     height: 40px;
     margin-right: 10px;
   }
+   
   
   ul {
     list-style-type: none;
@@ -17,12 +18,13 @@ nav {
     padding: 0;
     display: flex;
   } 
-  .logout {
-    margin-left: auto;
-  }
    
+
   li {
     margin: 0 10px;
+  }
+  .logout {
+    margin-left: auto;
   }
   
   a {
