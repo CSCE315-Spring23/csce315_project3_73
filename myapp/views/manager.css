@@ -62,6 +62,8 @@ nav {
     color: #444;
   }
 
+
+  /*X REPORT*/
   #output-report-container {
     border: 1px solid #444; /* Apply the border to the outer container */
     max-height: 400px;
