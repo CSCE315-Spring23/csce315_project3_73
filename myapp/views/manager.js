@@ -96,7 +96,7 @@ function generateXReport(){
         Promise.all(promises).then(() => {
           curr = reportOutput.textContent;
           let roundedNum = salesAmount.toFixed(2);
-          reportOutput.textContent = curr + "\n" + "\n Total Sales: " + roundedNum + "\n";
+          reportOutput.innerHTML = curr.replace(/\n/g, "<br>") + "<br><br> Total Sales: " + roundedNum + "<br>";
         });
       });
   } catch (d) {
