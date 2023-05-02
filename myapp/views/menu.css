@@ -29,7 +29,7 @@ nav {
   }
   
   
-  .container ul{
+  .container{
     position: relative;
     display: flex;
     justify-content: space-between;
