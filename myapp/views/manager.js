@@ -1,7 +1,6 @@
 var inputDate;
 document.addEventListener("DOMContentLoaded", function () {
   var dateInput = document.getElementById("date-input");
-   
 
   dateInput.addEventListener("input", function (event) {
     inputDate = event.target.value;
@@ -26,6 +25,37 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(error);
     });
 });
+
+function deleteItem() {
+  const selectedValue = parseInt(
+    document.getElementById("inventoryitems-dropdown").value,
+    10
+  );
+  const query = `DELETE FROM inventory WHERE invid = ${selectedValue}`;
+
+  fetch(`/orderquery?query=${encodeURIComponent(query)}`)
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response data
+      console.log(data);
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+function editItem() {
+  
+}
+
+function addItem() {}
+
+function deleteMenu() {}
+
+function editMenu() {}
+
+function addMenu() {}
 
 function runReport() {
   var dropdown = document.getElementById("report-dropdown");
@@ -197,38 +227,40 @@ function generateZReport() {
 }
 
 function generateRestockReport() {
+  let reportOutput = document
+    .getElementById("output-report")
+    .querySelector("p");
 
-  let reportOutput = document.getElementById("output-report").querySelector("p");
- 
   reportOutput.innerText = "Items with stock below 100: \n \n";
 
-const query = "SELECT itemname, numitems FROM inventory WHERE numitems <= 100";
-const fetchPromise = fetch(`/orderquery?query=${query}`);
+  const query =
+    "SELECT itemname, numitems FROM inventory WHERE numitems <= 100";
+  const fetchPromise = fetch(`/orderquery?query=${query}`);
 
-fetchPromise
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(item => {
-      const itemName = item.itemname;
-      const numItems = item.numitems;
-      const curr = reportOutput.innerText;
-      reportOutput.innerText = curr + itemName + ": " + numItems + " remaining \n";
+  fetchPromise
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((item) => {
+        const itemName = item.itemname;
+        const numItems = item.numitems;
+        const curr = reportOutput.innerText;
+        reportOutput.innerText =
+          curr + itemName + ": " + numItems + " remaining \n";
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+      console.error(error.name + ": " + error.message);
     });
-  })
-  .catch(error => {
-    console.error(error);
-    console.error(error.name + ": " + error.message);
-  });
-
 }
 /////////////////////////////////
 function generateExcessReport() {
-   
-
-  let reportOutput = document.getElementById("output-report").querySelector("p");
+  let reportOutput = document
+    .getElementById("output-report")
+    .querySelector("p");
   reportOutput.innerHTML = "";
 
-const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDate}'`;
+  const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDate}'`;
   const query = encodeURIComponent(sqlStatement);
   fetch(`/orderquery?query=${query}`)
     .then((response) => response.json())
@@ -243,8 +275,10 @@ const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDa
         excessOrderList = result.orderlist;
         const items = excessOrderList.split(",");
         orderList.push(...items);
-      } 
-      fetch(`/orderquery?query=${encodeURIComponent(`SELECT * FROM inventory`)}`)
+      }
+      fetch(
+        `/orderquery?query=${encodeURIComponent(`SELECT * FROM inventory`)}`
+      )
         .then((response) => response.json())
         .then((inventoryData) => {
           for (const inventoryResult of inventoryData) {
@@ -254,8 +288,11 @@ const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDa
           }
 
           const invListPromises = orderList.map((menuItem) =>
-            fetch(`/orderquery?query=${encodeURIComponent(`SELECT invlist FROM menu WHERE menuid = ${menuItem}`)}`)
-              .then((response) => response.json())
+            fetch(
+              `/orderquery?query=${encodeURIComponent(
+                `SELECT invlist FROM menu WHERE menuid = ${menuItem}`
+              )}`
+            ).then((response) => response.json())
           );
 
           Promise.all(invListPromises)
@@ -272,15 +309,12 @@ const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDa
                 inventoryBefore[key] = inventoryCurr[key];
               }
 
-
               for (const x of invListVec) {
                 const quantity = inventoryBefore[x] || 0;
                 if (quantity !== 0) {
                   inventoryBefore[x] = quantity + 1;
                 }
               }
-
-               
 
               for (const key in inventoryCurr) {
                 let currName = "";
@@ -291,7 +325,11 @@ const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDa
                 const diffPercentage = (diff / valBefore) * 100;
 
                 if (diffPercentage < 10) {
-                  fetch(`/orderquery?query=${encodeURIComponent(`SELECT itemname FROM inventory WHERE invid = ${key}`)}`)
+                  fetch(
+                    `/orderquery?query=${encodeURIComponent(
+                      `SELECT itemname FROM inventory WHERE invid = ${key}`
+                    )}`
+                  )
                     .then((response) => response.json())
                     .then((result) => {
                       currName = result[0].itemname;
@@ -316,5 +354,3 @@ const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDa
       console.error(error);
     });
 }
-
-

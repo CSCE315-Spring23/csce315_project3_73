@@ -56,6 +56,7 @@
       <!-- HTML elements for editing menu -->
       <select id="menuitems-dropdown">
         <option value="none">Select Menu Item...</option>
+        <option value="none">ADD Menu Item...</option>
         <% for(let i=0; i<menuitems.length; i++) { %>
           <option value="<%= menuitems[i].menuid %>"><%= menuitems[i].itemname %></option>
         <% } %>
@@ -142,14 +143,82 @@
   // Move inventory dropdown inside display area when selected
   inventoryDropdown.addEventListener("change", () => {
     const selectedOption = inventoryDropdown.value;
-    // Do something with selected option
+    const invidInput = document.getElementById("inventory-invid");
+    const itemNameInput = document.getElementById("inventory-itemname");
+    const costPerInput = document.getElementById("inventory-costper");
+    const numItemsInput = document.getElementById("inventory-numitems");
+
+    if (selectedOption == "none") {
+      // Reset input values
+      invidInput.value = "";
+      itemNameInput.value = "";
+      costPerInput.value = "";
+      numItemsInput.value = "";
+    } else {
+      const query = `SELECT * FROM inventory WHERE invid = ${selectedOption}`;
+
+      fetch(`/orderquery?query=${encodeURIComponent(query)}`)
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the response data
+          if (data.length > 0) {
+            // Set input values based on the retrieved data
+            invidInput.value = data[0].invid;
+            itemNameInput.value = data[0].itemname;
+            costPerInput.value = data[0].costper;
+            numItemsInput.value = data[0].numitems;
+          } else {
+            // No data found, handle accordingly
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
   });
 
   // Move menu dropdown inside display area when selected
   menuDropdown.addEventListener("change", () => {
-    const selectedOption = menuDropdown.value;
-    // Do something with selected option
-  });
+  const selectedOption = menuDropdown.value;
+  const menuIdInput = document.getElementById("menu-menuid");
+  const itemNameInput = document.getElementById("menu-itemname");
+  const itemPriceInput = document.getElementById("menu-itemprice");
+  const invListInput = document.getElementById("menu-invlist");
+  const picsInput = document.getElementById("menu-pics");
+  const categoryInput = document.getElementById("menu-category");
+
+  if (selectedOption == "none") {
+    // Reset input values
+    menuIdInput.value = "";
+    itemNameInput.value = "";
+    itemPriceInput.value = "";
+    invListInput.value = "";
+    picsInput.value = "";
+    categoryInput.value = "";
+  } else {
+    const query = `SELECT * FROM menu WHERE menuid = ${selectedOption}`;
+
+    fetch(`/orderquery?query=${encodeURIComponent(query)}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response data
+        if (data.length > 0) {
+          // Set input values based on the retrieved data
+          menuIdInput.value = data[0].menuid;
+          itemNameInput.value = data[0].itemname;
+          itemPriceInput.value = data[0].itemprice;
+          invListInput.value = data[0].invlist;
+          picsInput.value = data[0].pics;
+          categoryInput.value = data[0].category;
+        } else {
+          // No data found, handle accordingly
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+});
 });
 
 
