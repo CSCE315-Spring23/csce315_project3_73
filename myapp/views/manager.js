@@ -67,13 +67,13 @@ function generateXReport(){
 
         // Generate x report
         let reportOutput = document.getElementById("output-report").querySelector("p");
-        reportOutput.textContent = "X Report (Ran At Time: " + formattedDate + "): \n";
+        reportOutput.textContent = "X Report (Ran At Time: " + formattedDate + "): <br>";
         let curr = reportOutput.textContent;
-        reportOutput.textContent = curr + "-------------------------------------------------- \n";
+        reportOutput.textContent = curr + "-------------------------------------------------- <br>";
         curr = reportOutput.textContent;
-        reportOutput.textContent = curr + "# of Orders Up to now: " + count + "\n";
+        reportOutput.textContent = curr + "# of Orders Up to now: " + count + "<br>";
         curr = reportOutput.textContent;
-        reportOutput.textContent = curr + "-------------------------------------------------- \n";
+        reportOutput.textContent = curr + "-------------------------------------------------- <br>";
 
         // Fetch menu items for each item in the report
         let promises = [];
@@ -85,7 +85,7 @@ function generateXReport(){
               if (data.length > 0) {
                 const itemName = data[0].itemname;
                 let curr = reportOutput.textContent;
-                reportOutput.textContent = curr + itemName + ": " + quantity + "\n";
+                reportOutput.textContent = curr + itemName + ": " + quantity + "<br>";
                 return itemName;
               }
             });
