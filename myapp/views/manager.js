@@ -75,25 +75,24 @@ function generateXReport(){
         curr = reportOutput.textContent;
         reportOutput.textContent = curr + "-------------------------------------------------- \n";
 
-        // Iterate over the hashmap
+        // Fetch menu items for each item in the report
         let promises = [];
         for (let [item, quantity] of itemQuantities) {
-          const query = encodeURIComponent(`SELECT menuid, itemprice FROM menu WHERE itemname = '${item}'`);
-          let promise = fetch(`/orderquery?query=${query}`)
+          const menuQuery = encodeURIComponent(`SELECT itemname FROM menu WHERE menuid = ${item}`);
+          let promise = fetch(`/orderquery?query=${menuQuery}`)
             .then((response) => response.json())
             .then((data) => {
               if (data.length > 0) {
-                const { menuid, itemprice } = data[0];
+                const itemName = data[0].itemname;
                 let curr = reportOutput.textContent;
-                reportOutput.textContent = curr + item + ": " + quantity + "\n";
-                let totalPrice = salesAmount + parseFloat(itemprice);
-                salesAmount = totalPrice;
-                return menuid;
+                reportOutput.textContent = curr + itemName + ": " + quantity + "\n";
+                return itemName;
               }
             });
           promises.push(promise);
         }
 
+        // Update the report output with the menu item names
         Promise.all(promises).then(() => {
           curr = reportOutput.textContent;
           let roundedNum = salesAmount.toFixed(2);
