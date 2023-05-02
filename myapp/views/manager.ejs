@@ -37,6 +37,7 @@
     
         <% } %>
       </select>
+      <br>
       <input type="text" id="inventory-invid" disabled>
       <br>
       <input type="text" id="inventory-itemname">
@@ -59,6 +60,7 @@
           <option value="<%= menuitems[i].menuid %>"><%= menuitems[i].itemname %></option>
         <% } %>
       </select>
+      <br>
       <input type="text" id="menu-menuid" disabled>
       <br>
       <input type="text" id="menu-itemname">
@@ -70,7 +72,10 @@
       <input type="text" id="menu-pics">
       <br>
       <input type="text" id="menu-category">
-      
+      <br>
+      <b value="Delete" onclick="deleteMenu()">Delete Item</b>
+      <b value="Edit" onclick="editMenu()">Edit Item</b>
+      <b value="Add Item" onclick="addMenu()">Add Item</b>
     </div>
 
     <div id="run-reports" style="display: none">
