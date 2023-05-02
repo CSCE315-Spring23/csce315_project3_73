@@ -6,11 +6,10 @@ nav {
   align-items: center;
 }
 #logo-image {
-  width: 150px; 
-  height: 50px; 
-  margin-right: 10px; 
+  width: 150px;
+  height: 40px;
+  margin-right: 10px;
 }
-
 ul {
   list-style-type: none;
   margin: 0;
