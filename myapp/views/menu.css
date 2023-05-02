@@ -33,6 +33,15 @@ nav {
     color: black;
   }
 
+  .left{
+    width: 45%;
+    float: left;
+  }
+
+  .right{
+    width: 45%;
+    float: right;
+  }
 
   .container{
     vertical-align: top;
