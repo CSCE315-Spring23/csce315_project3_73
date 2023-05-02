@@ -1,4 +1,12 @@
+var inputDate;
 document.addEventListener("DOMContentLoaded", function () {
+  var dateInput = document.getElementById("date-input");
+   
+
+  dateInput.addEventListener("input", function (event) {
+    inputDate = event.target.value;
+  });
+
   const weatherDiv = document.getElementById("weather");
 
   fetch(
@@ -191,13 +199,6 @@ function generateZReport() {
 function generateRestockReport() {}
 
 function generateExcessReport() {
-  var inputField = document.querySelector("#run-reports input[type='text']");
-  var inputDate = "";
-
-  inputField.addEventListener("input", function (event) {
-    inputDate = event.target.value;
-  });
-
   const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDate}'`;
   const query = encodeURIComponent(sqlStatement);
 
