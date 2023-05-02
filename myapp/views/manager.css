@@ -10,6 +10,9 @@ nav {
   height: 40px;
   margin-right: 10px;
 }
+.logout {
+  margin-left: auto;
+}
 
 ul {
   list-style-type: none;

@@ -16,7 +16,11 @@ nav {
     margin: 0;
     padding: 0;
     display: flex;
-  }  
+  } 
+  .logout {
+    margin-left: auto;
+  }
+   
   li {
     margin: 0 10px;
   }
