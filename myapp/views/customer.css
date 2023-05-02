@@ -94,7 +94,7 @@ a:hover {
   }
   
   .text-box {
-    position: relative;
+    position: absolute;
     top: 0;
     right: 0;
     width: 40%;
