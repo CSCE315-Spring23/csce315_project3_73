@@ -36,11 +36,13 @@ nav {
   .left{
     width: 45%;
     float: left;
+    padding: 20px;
   }
 
   .right{
     width: 45%;
     float: right;
+    padding: 20px;
   }
 
   .container{
