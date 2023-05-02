@@ -76,27 +76,29 @@ function generateXReport(){
         reportOutput.textContent = curr + "-------------------------------------------------- \n";
 
         // Iterate over the hashmap
+        let promises = [];
         for (let [item, quantity] of itemQuantities) {
-          try {
-            const query = encodeURIComponent(`SELECT menuid, itemprice FROM menu WHERE itemname = '${item}'`);
-            fetch(`/orderquery?query=${query}`)
-              .then((response) => response.json())
-              .then((data) => {
+          const query = encodeURIComponent(`SELECT menuid, itemprice FROM menu WHERE itemname = '${item}'`);
+          let promise = fetch(`/orderquery?query=${query}`)
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.length > 0) {
                 const { menuid, itemprice } = data[0];
                 let curr = reportOutput.textContent;
                 reportOutput.textContent = curr + item + ": " + quantity + "\n";
                 let totalPrice = salesAmount + parseFloat(itemprice);
                 salesAmount = totalPrice;
                 return menuid;
-              });
-          } catch (d) {
-            console.error(d);
-          }
+              }
+            });
+          promises.push(promise);
         }
 
-        curr = reportOutput.textContent;
-        let roundedNum = salesAmount.toFixed(2);
-        reportOutput.textContent = curr + "\n" + "\n Total Sales: " + roundedNum + "\n";
+        Promise.all(promises).then(() => {
+          curr = reportOutput.textContent;
+          let roundedNum = salesAmount.toFixed(2);
+          reportOutput.textContent = curr + "\n" + "\n Total Sales: " + roundedNum + "\n";
+        });
       });
   } catch (d) {
     console.error(d);
