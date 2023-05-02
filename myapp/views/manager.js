@@ -191,99 +191,106 @@ function generateZReport() {
 function generateRestockReport() {}
 
 function generateExcessReport() {
-  const currentDate = new Date();
-const formattedDate = currentDate.toISOString().split('T')[0];
+  var formattedDate= document.querySelector("#run-reports input[type='text']").value; 
 
-const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${formattedDate}'`;
-const query = encodeURIComponent(sqlStatement);
+  const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${formattedDate}'`;
+  const query = encodeURIComponent(sqlStatement);
 
-fetch(`/orderquery?query=${query}`)
-  .then((response) => response.json())
-  .then((data) => {
-    let excessOrderList = "";
-    let orderList = [];
-    let invListVec = [];
-    let inventoryCurr = {};
-    let inventoryBefore = {};
+  fetch(`/orderquery?query=${query}`)
+    .then((response) => response.json())
+    .then((data) => {
+      let excessOrderList = "";
+      let orderList = [];
+      let invListVec = [];
+      let inventoryCurr = {};
+      let inventoryBefore = {};
 
-    for (const result of data) {
-      excessOrderList = result.orderlist;
-      const items = excessOrderList.split(",");
-      orderList.push(...items);
-    }
+      for (const result of data) {
+        excessOrderList = result.orderlist;
+        const items = excessOrderList.split(",");
+        orderList.push(...items);
+      }
 
-    fetch(`/orderquery?query=${encodeURIComponent(`SELECT * FROM inventory`)}`)
-      .then((response) => response.json())
-      .then((inventoryData) => {
-        for (const inventoryResult of inventoryData) {
-          const currInv = inventoryResult.invid;
-          const numItems = inventoryResult.numitems;
-          inventoryCurr[currInv] = numItems;
-        }
+      fetch(
+        `/orderquery?query=${encodeURIComponent(`SELECT * FROM inventory`)}`
+      )
+        .then((response) => response.json())
+        .then((inventoryData) => {
+          for (const inventoryResult of inventoryData) {
+            const currInv = inventoryResult.invid;
+            const numItems = inventoryResult.numitems;
+            inventoryCurr[currInv] = numItems;
+          }
 
-        const invListPromises = orderList.map((menuItem) =>
-          fetch(`/orderquery?query=${encodeURIComponent(`SELECT invlist FROM menu WHERE menuid = ${menuItem}`)}`)
-            .then((response) => response.json())
-        );
+          const invListPromises = orderList.map((menuItem) =>
+            fetch(
+              `/orderquery?query=${encodeURIComponent(
+                `SELECT invlist FROM menu WHERE menuid = ${menuItem}`
+              )}`
+            ).then((response) => response.json())
+          );
 
-        Promise.all(invListPromises)
-          .then((invListData) => {
-            for (const result of invListData) {
-              const currInv = result[0].invlist;
-              const items = currInv.split(",");
-              invListVec.push(...items);
-            }
-
-            for (const key in inventoryCurr) {
-              inventoryBefore[key] = inventoryCurr[key];
-            }
-
-            for (const x of invListVec) {
-              const quantity = inventoryBefore[x] || 0;
-              if (quantity !== 0) {
-                inventoryBefore[x] = quantity + 1;
+          Promise.all(invListPromises)
+            .then((invListData) => {
+              for (const result of invListData) {
+                const currInv = result[0].invlist;
+                const items = currInv.split(",");
+                invListVec.push(...items);
               }
-            }
 
-            let reportOutput = document
-              .getElementById("output-report")
-              .querySelector("p");
-
-            reportOutput.innerHTML = "";
-
-            for (const key in inventoryCurr) {
-              let currName = "";
-              const valBefore = inventoryBefore[key];
-              const valCurr = inventoryCurr[key];
-
-              const diff = Math.abs(valBefore - valCurr) / valBefore;
-
-              if (diff < 0.1) {
-                fetch(`/orderquery?query=${encodeURIComponent(`SELECT itemname FROM inventory WHERE invid = ${key}`)}`)
-                  .then((response) => response.json())
-                  .then((result) => {
-                    currName = result[0].itemname;
-
-                    const diffPercentage = (diff * 100).toFixed(2);
-
-                    reportOutput.innerHTML += `${currName}: ${diffPercentage}%<br>`;
-                  })
-                  .catch((error) => {
-                    console.error(error);
-                  });
+              for (const key in inventoryCurr) {
+                inventoryBefore[key] = inventoryCurr[key];
               }
-            }
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  })
-  .catch((error) => {
-    console.error(error);
-  });
 
+              for (const x of invListVec) {
+                const quantity = inventoryBefore[x] || 0;
+                if (quantity !== 0) {
+                  inventoryBefore[x] = quantity + 1;
+                }
+              }
+
+              let reportOutput = document
+                .getElementById("output-report")
+                .querySelector("p");
+
+              reportOutput.innerHTML = "";
+
+              for (const key in inventoryCurr) {
+                let currName = "";
+                const valBefore = inventoryBefore[key];
+                const valCurr = inventoryCurr[key];
+
+                const diff = Math.abs(valBefore - valCurr) / valBefore;
+
+                if (diff < 0.1) {
+                  fetch(
+                    `/orderquery?query=${encodeURIComponent(
+                      `SELECT itemname FROM inventory WHERE invid = ${key}`
+                    )}`
+                  )
+                    .then((response) => response.json())
+                    .then((result) => {
+                      currName = result[0].itemname;
+
+                      const diffPercentage = (diff * 100).toFixed(2);
+
+                      reportOutput.innerHTML += `${currName}: ${diffPercentage}%<br>`;
+                    })
+                    .catch((error) => {
+                      console.error(error);
+                    });
+                }
+              }
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
