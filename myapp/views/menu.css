@@ -59,7 +59,35 @@ a:hover {
     display: flex;
     align-items: center;
   }
-  
+
+  .snack{
+    border: 1px solid #ccc;
+    display: flex;
+  }
+
+  .protein{
+    border: 1px solid #ccc;
+    display: flex;
+  }
+
+  .protein{
+    border: 1px solid #ccc;
+  }
+
+  .recovery{
+    border: 1px solid #ccc;
+  }
+
+  /* .snack_list{
+    float: left;
+  } */
+
+  /* .snack_pic{
+    float: right;
+    border: 1px solid #ccc;
+  } */
+
+
   .right {
     flex-basis: 45%;
     margin-left: 20px;
