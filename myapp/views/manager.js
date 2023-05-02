@@ -67,13 +67,10 @@ function generateXReport(){
 
         // Generate x report
         let reportOutput = document.getElementById("output-report").querySelector("p");
-        reportOutput.textContent = "X Report (Ran At Time: " + formattedDate + "): <br>";
-        let curr = reportOutput.textContent;
-        reportOutput.textContent = curr + "-------------------------------------------------- <br>";
-        curr = reportOutput.textContent;
-        reportOutput.textContent = curr + "# of Orders Up to now: " + count + "<br>";
-        curr = reportOutput.textContent;
-        reportOutput.textContent = curr + "-------------------------------------------------- <br>";
+        let curr = "X Report (Ran At Time: " + formattedDate + "): <br>"; 
+        curr = curr + "-------------------------------------------------- <br>"; 
+        curr = curr + "# of Orders Up to now: " + count + "<br>"; 
+        curr = curr + "-------------------------------------------------- <br>";
 
         // Fetch menu items for each item in the report
         let promises = [];
@@ -83,9 +80,8 @@ function generateXReport(){
             .then((response) => response.json())
             .then((data) => {
               if (data.length > 0) {
-                const itemName = data[0].itemname;
-                let curr = reportOutput.textContent;
-                reportOutput.textContent = curr + itemName + ": " + quantity + "<br>";
+                const itemName = data[0].itemname; 
+                curr = curr + itemName + ": " + quantity + "<br>";
                 return itemName;
               }
             });
@@ -93,8 +89,7 @@ function generateXReport(){
         }
 
         // Update the report output with the menu item names
-        Promise.all(promises).then(() => {
-          curr = reportOutput.textContent;
+        Promise.all(promises).then(() => { 
           let roundedNum = salesAmount.toFixed(2);
           reportOutput.innerHTML = curr.replace(/\n/g, "<br>") + "<br><br> Total Sales: " + roundedNum + "<br>";
         });
