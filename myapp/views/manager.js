@@ -217,9 +217,7 @@ function generateExcessReport() {
         orderList.push(...items);
       }
 
-      fetch(
-        `/orderquery?query=${encodeURIComponent(`SELECT * FROM inventory`)}`
-      )
+      fetch(`/orderquery?query=${encodeURIComponent(`SELECT * FROM inventory`)}`)
         .then((response) => response.json())
         .then((inventoryData) => {
           for (const inventoryResult of inventoryData) {
@@ -229,11 +227,8 @@ function generateExcessReport() {
           }
 
           const invListPromises = orderList.map((menuItem) =>
-            fetch(
-              `/orderquery?query=${encodeURIComponent(
-                `SELECT invlist FROM menu WHERE menuid = ${menuItem}`
-              )}`
-            ).then((response) => response.json())
+            fetch(`/orderquery?query=${encodeURIComponent(`SELECT invlist FROM menu WHERE menuid = ${menuItem}`)}`)
+              .then((response) => response.json())
           );
 
           Promise.all(invListPromises)
@@ -257,10 +252,7 @@ function generateExcessReport() {
                 }
               }
 
-              let reportOutput = document
-                .getElementById("output-report")
-                .querySelector("p");
-
+              let reportOutput = document.getElementById("output-report").querySelector("p");
               reportOutput.innerHTML = "";
 
               for (const key in inventoryCurr) {
@@ -268,21 +260,16 @@ function generateExcessReport() {
                 const valBefore = inventoryBefore[key];
                 const valCurr = inventoryCurr[key];
 
-                const diff = Math.abs(valBefore - valCurr) / valBefore;
+                const diff = valBefore - valCurr;
+                const diffPercentage = (diff / valBefore) * 100;
 
-                if (diff < 0.1) {
-                  fetch(
-                    `/orderquery?query=${encodeURIComponent(
-                      `SELECT itemname FROM inventory WHERE invid = ${key}`
-                    )}`
-                  )
+                if (diffPercentage < 10) {
+                  fetch(`/orderquery?query=${encodeURIComponent(`SELECT itemname FROM inventory WHERE invid = ${key}`)}`)
                     .then((response) => response.json())
                     .then((result) => {
                       currName = result[0].itemname;
-
-                      const diffPercentage = (diff * 100).toFixed(2);
-
-                      reportOutput.innerHTML += `${currName}: ${diffPercentage}%<br>`;
+                      const formattedDiffPercentage = diffPercentage.toFixed(2);
+                      reportOutput.innerHTML += `${currName}: ${formattedDiffPercentage}%<br>`;
                     })
                     .catch((error) => {
                       console.error(error);
@@ -302,4 +289,5 @@ function generateExcessReport() {
       console.error(error);
     });
 }
+
 
