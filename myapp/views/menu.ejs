@@ -16,8 +16,16 @@
   <div class="container">
     <ul>
         <% for (var i in menuitems) { %>
-          <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
-          <br>
+          <!-- <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li> -->
+          <% if (menuitems[i].category == "Smoothie") { %>
+            <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+          <% } else if (menuitems[i].category == "Snack") { %>
+            <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+          <% } else if (menuitems[i].category == "Protein Smoothie") { %>
+            <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+          <% } else { %>
+            <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+          <% } %>
         <% } %>
       </ul>
     </div>
