@@ -14,14 +14,12 @@
   </nav>
   <br>
   <div class="container">
-    <div class="button-grid">
-      <% for (var i in menuitems) { %>
-        <button style="background-image: url('<%= menuitems[i].pics %>');" onclick="handleClick('<%= menuitems[i].itemname %>', '<%= menuitems[i].itemprice %>')" >
-          <%= menuitems[i].itemname %>
-          <br>
-          $<%= menuitems[i].itemprice %>
-        </button>
-      <% } %>
+    <ul>
+        <% for (var i in menuitems) { %>
+          <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+        <% } %>
+      </ul>
+      
     </div>
     <!-- <div class="text-box">
       <br>
