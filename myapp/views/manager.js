@@ -196,15 +196,40 @@ function generateZReport() {
     });
 }
 
-function generateRestockReport() {}
+function generateRestockReport() {
 
+  let reportOutput = document.getElementById("output-report").querySelector("p");
+ 
+  reportOutput.innerText = "Items with stock below 100: \n \n";
+
+const query = "SELECT itemname, numitems FROM inventory WHERE numitems <= 100";
+const fetchPromise = fetch(`/orderquery?query=${query}`);
+
+fetchPromise
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(item => {
+      const itemName = item.itemname;
+      const numItems = item.numitems;
+      const curr = reportOutput.innerText;
+      reportOutput.innerText = curr + itemName + ": " + numItems + " remaining \n";
+    });
+  })
+  .catch(error => {
+    console.error(error);
+    console.error(error.name + ": " + error.message);
+  });
+
+}
+/////////////////////////////////
 function generateExcessReport() {
-  const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDate}'`;
-  const query = encodeURIComponent(sqlStatement);
+   
 
   let reportOutput = document.getElementById("output-report").querySelector("p");
   reportOutput.innerHTML = "";
 
+const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDate}'`;
+  const query = encodeURIComponent(sqlStatement);
   fetch(`/orderquery?query=${query}`)
     .then((response) => response.json())
     .then((data) => {
@@ -218,8 +243,7 @@ function generateExcessReport() {
         excessOrderList = result.orderlist;
         const items = excessOrderList.split(",");
         orderList.push(...items);
-      }
-      reportOutput.innerHTML = orderList;
+      } 
       fetch(`/orderquery?query=${encodeURIComponent(`SELECT * FROM inventory`)}`)
         .then((response) => response.json())
         .then((inventoryData) => {
@@ -247,6 +271,7 @@ function generateExcessReport() {
               for (const key in inventoryCurr) {
                 inventoryBefore[key] = inventoryCurr[key];
               }
+
 
               for (const x of invListVec) {
                 const quantity = inventoryBefore[x] || 0;
