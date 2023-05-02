@@ -19,13 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-var inputField = document.querySelector("#run-reports input[type='text']");
-var inputDate = "";
-
-inputField.addEventListener('input', function(event) {
-  inputDate = event.target.value;
-});
-
 function runReport() {
   var dropdown = document.getElementById("report-dropdown");
   var selectedValue = dropdown.value;
@@ -197,7 +190,13 @@ function generateZReport() {
 
 function generateRestockReport() {}
 
-function generateExcessReport() { 
+function generateExcessReport() {
+  var inputField = document.querySelector("#run-reports input[type='text']");
+  var inputDate = "";
+
+  inputField.addEventListener("input", function (event) {
+    inputDate = event.target.value;
+  });
 
   const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDate}'`;
   const query = encodeURIComponent(sqlStatement);
