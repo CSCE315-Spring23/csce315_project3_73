@@ -62,10 +62,13 @@ nav {
     color: #444;
   }
 
+  #output-report-container {
+    border: 1px solid #444; /* Apply the border to the outer container */
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
   #output-report {
-    border-color: #444;
-    border-width: 1px;
-    max-height: 200px; /* Set the maximum height of the div */
-    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Add padding as desired */
   }
   
