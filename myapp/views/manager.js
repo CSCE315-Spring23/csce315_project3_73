@@ -239,9 +239,11 @@ function generateExcessReport() {
           Promise.all(invListPromises)
             .then((invListData) => {
               for (const result of invListData) {
-                const currInv = result[0].invlist;
-                const items = currInv.split(",");
-                invListVec.push(...items);
+                const currInv = result[0]?.invlist; // Add a check for undefined
+                if (currInv) {
+                  const items = currInv.split(",");
+                  invListVec.push(...items);
+                }
               }
 
               for (const key in inventoryCurr) {
@@ -300,3 +302,4 @@ function generateExcessReport() {
       console.error(error);
     });
 }
+
