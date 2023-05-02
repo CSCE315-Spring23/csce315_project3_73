@@ -25,6 +25,9 @@ li {
 
 .logout {
   margin-left: auto;
+  list-style-type: none; 
+  padding: 0;
+  display: flex;
 }
 
 a {
