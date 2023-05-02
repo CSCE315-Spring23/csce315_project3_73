@@ -26,11 +26,11 @@ function runReport(){
 
   }else if(selectedValue == "option1"){
     generateXReport();
-  }else if(selectValue == "option2"){
+  }else if(selectedValue == "option2"){
     generateZReport();
-  }else if(selectValue == "option3"){
+  }else if(selectedValue == "option3"){
     generateRestockReport();
-  }else if(selectValue == "option4"){
+  }else if(selectedValue == "option4"){
     generateExcessReport();
   }
 
