@@ -1,141 +1,154 @@
 nav {
-    background-color: #f17878;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  li {
-    margin: 0 10px;
-  }
-  
-  a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  a:hover {
-    background-color: white;
-    color: black;
-  }
+  background-color: #f17878;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .dropdown {
-    display: block; 
-  }
-  .dropdown select {
-    width: 200px;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #f2f2f2;
-    color: #444;
-  }
-  
-  .dropdown select option {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #f2f2f2;
-    color: #444;
-  }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
 
-  #display-area {
-    width: 800x;
-    height: 600px;
-    background-color: #eee;
-    padding: 20px;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    color: #444;
-  }
+li {
+  margin: 0 10px;
+}
 
+a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
 
-  /*X REPORT*/
-  #output-report-container {
-    border: 1px solid #444; /* Apply the border to the outer container */
-    max-height: 400px;
-    overflow-y: auto;
-  }
-  
-  #output-report {
-    padding: 10px; /* Add padding as desired */
-  }
-  
-  #report-dropdown {
-    width: 200px;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #f2f2f2;
-    color: #444;
-  }
-  
-  #report-dropdown option {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #f2f2f2;
-    color: #444;
-  }
-  
-  #display-area b {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #f14b4b;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #display-area b:hover {
-    background-color: #f68888;
-  }
+a:hover {
+  background-color: white;
+  color: black;
+}
 
+.dropdown {
+  display: block;
+}
+.dropdown select {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #f2f2f2;
+  color: #444;
+}
 
+.dropdown select option {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #f2f2f2;
+  color: #444;
+}
 
-  #menuitems-dropdown {
-    width: 200px;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #f2f2f2;
-    color: #444;
-  }
-  
-  #menuitems-dropdown option {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #f2f2f2;
-    color: #444;
-  }
+#display-area {
+  width: 800x;
+  height: 600px;
+  background-color: #eee;
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #444;
+}
 
-  #menuitems-dropdown {
-    width: 200px;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #f2f2f2;
-    color: #444;
-  }
-  
-  #inventoryitems-dropdown option {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #f2f2f2;
-    color: #444;
-  }
+/*X REPORT*/
+#output-report-container {
+  border: 1px solid #444; /* Apply the border to the outer container */
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#output-report {
+  padding: 10px; /* Add padding as desired */
+}
+
+#report-dropdown {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #f2f2f2;
+  color: #444;
+}
+
+#report-dropdown option {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #f2f2f2;
+  color: #444;
+}
+
+#display-area b {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f14b4b;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#display-area b:hover {
+  background-color: #f68888;
+}
+
+#menuitems-dropdown {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #f2f2f2;
+  color: #444;
+}
+
+#menuitems-dropdown option {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #f2f2f2;
+  color: #444;
+}
+
+#inventoryitems-dropdown {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #f2f2f2;
+  color: #444;
+}
+
+#inventoryitems-dropdown option {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #f2f2f2;
+  color: #444;
+}
+
+input[type="text"] {
+  color: #333;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  border: 1px solid #696464;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
