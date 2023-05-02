@@ -202,6 +202,9 @@ function generateExcessReport() {
   const sqlStatement = `SELECT orderlist FROM orders WHERE ordertime >= '${inputDate}'`;
   const query = encodeURIComponent(sqlStatement);
 
+  let reportOutput = document.getElementById("output-report").querySelector("p");
+  reportOutput.innerHTML = "";
+
   fetch(`/orderquery?query=${query}`)
     .then((response) => response.json())
     .then((data) => {
@@ -216,7 +219,7 @@ function generateExcessReport() {
         const items = excessOrderList.split(",");
         orderList.push(...items);
       }
-
+      reportOutput.innerHTML = orderList;
       fetch(`/orderquery?query=${encodeURIComponent(`SELECT * FROM inventory`)}`)
         .then((response) => response.json())
         .then((inventoryData) => {
@@ -252,8 +255,7 @@ function generateExcessReport() {
                 }
               }
 
-              let reportOutput = document.getElementById("output-report").querySelector("p");
-              reportOutput.innerHTML = "";
+               
 
               for (const key in inventoryCurr) {
                 let currName = "";
