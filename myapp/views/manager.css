@@ -61,3 +61,9 @@ nav {
     font-size: 24px;
     color: #444;
   }
+
+  #output-report {
+    white-space: nowrap;
+    border-color:#444;
+    border-width: 0cap;
+  }
