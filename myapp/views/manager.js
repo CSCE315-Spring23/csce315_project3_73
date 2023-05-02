@@ -56,7 +56,7 @@ function generateXReport(){
       .then((data) => {
         for (let result of data) {
           salesOrderList = result.orderlist;
-          salesAmount += result.orderprice;
+          salesAmount += parseFloat(result.orderprice);
           let items = salesOrderList.split(",");
           count++;
           for (let item of items) {
