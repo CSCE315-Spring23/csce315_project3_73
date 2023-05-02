@@ -8,8 +8,9 @@
 <body>
   <nav>
     <ul>
-      <li><a href="/order">Place Order</a></li>
+      <li><a href="/order">Place Order</a></li> 
     </ul>
+    <img src="images/smoothieKing.png" alt="Logo" id="logo-image">
   </nav>
   <br />
   Hello Manager!
@@ -31,7 +32,7 @@
       <!-- HTML elements for editing inventory -->
       <select id="inventoryitems-dropdown">
         <option value="none">Select Inventory Item...</option>
-        <option value="ADD">ADD ITEM</option>
+        <option value="ADD">ADD Inventory Item</option>
         <% for(let i=0; i<inventoryitems.length; i++) { %>
           <option value="<%= inventoryitems[i].invid %>"><%= inventoryitems[i].itemname %></option>
     
@@ -56,7 +57,7 @@
       <!-- HTML elements for editing menu -->
       <select id="menuitems-dropdown">
         <option value="none">Select Menu Item...</option>
-        <option value="none">ADD Menu Item...</option>
+        <option value="ADD">ADD Menu Item...</option>
         <% for(let i=0; i<menuitems.length; i++) { %>
           <option value="<%= menuitems[i].menuid %>"><%= menuitems[i].itemname %></option>
         <% } %>
@@ -148,7 +149,7 @@
     const costPerInput = document.getElementById("inventory-costper");
     const numItemsInput = document.getElementById("inventory-numitems");
 
-    if (selectedOption == "none") {
+    if (selectedOption == "none" || selectedOption == "ADD") {
       // Reset input values
       invidInput.value = "";
       itemNameInput.value = "";
@@ -187,7 +188,7 @@
   const picsInput = document.getElementById("menu-pics");
   const categoryInput = document.getElementById("menu-category");
 
-  if (selectedOption == "none") {
+  if (selectedOption == "none" || selectedOption == "ADD") {
     // Reset input values
     menuIdInput.value = "";
     itemNameInput.value = "";

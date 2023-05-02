@@ -36,8 +36,7 @@ function deleteItem() {
   fetch(`/orderquery?query=${encodeURIComponent(query)}`)
     .then((response) => response.json())
     .then((data) => {
-      // Handle the response data
-      console.log(data);
+      // Handle the response data 
       window.location.reload();
     })
     .catch((error) => {
@@ -46,16 +45,158 @@ function deleteItem() {
 }
 
 function editItem() {
-  
+  if(selectedValue == "ADD" || selectedValue == "ADD"){
+    return;
+  }
+  const selectedValue = parseInt(
+    document.getElementById("inventoryitems-dropdown").value,
+    10
+  ); 
+  const itemNameInput = document.getElementById("inventory-itemname");
+  const costPerInput = document.getElementById("inventory-costper");
+  const numItemsInput = document.getElementById("inventory-numitems");
+
+  const query = `UPDATE inventory SET 
+                  itemname = '${itemNameInput.value}', 
+                  costper = ${parseFloat(costPerInput.value)}, 
+                  numitems = ${parseInt(numItemsInput.value, 10)}
+                WHERE invid = ${selectedValue}`;
+
+  fetch(`/orderquery?query=${encodeURIComponent(query)}`)
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response data 
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
 
-function addItem() {}
+function addItem() {
+  const selectedValue =  document.getElementById("inventoryitems-dropdown").value 
+  if(selectedValue != "ADD"){
+    return;
+  }
+  let newID;
 
-function deleteMenu() {}
+const query1 = `SELECT MAX(invid) FROM inventory`;
 
-function editMenu() {}
+fetch(`/orderquery?query=${encodeURIComponent(query1)}`)
+  .then((response) => response.json())
+  .then((data) => { 
+    newID = data[0].max;
 
-function addMenu() {}
+    const itemNameInput = document.getElementById("inventory-itemname");
+    const costPerInput = document.getElementById("inventory-costper");
+    const numItemsInput = document.getElementById("inventory-numitems");
+
+    const query2 = `INSERT INTO inventory (invid, numitems, costper, itemname) 
+                    VALUES (${newID + 1}, '${numItemsInput.value}', ${parseFloat(costPerInput.value)}, 
+                    '${itemNameInput.value}')`;
+
+    fetch(`/orderquery?query=${encodeURIComponent(query2)}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response data 
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+}
+
+function deleteMenu() {
+  const selectedValue = parseInt(
+    document.getElementById("menuitems-dropdown").value,
+    10
+  );
+  const query = `DELETE FROM menu WHERE menuid = ${selectedValue}`;
+
+  fetch(`/orderquery?query=${encodeURIComponent(query)}`)
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response data 
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+function editMenu() {
+  const selectedValue = parseInt(
+    document.getElementById("menuitems-dropdown").value,
+    10
+  ); 
+  const itemNameInput = document.getElementById("menu-itemname");
+  const itemPriceInput = document.getElementById("menu-itemprice");
+  const invListInput = document.getElementById("menu-invlist");
+  const picsInput = document.getElementById("menu-pics");
+  const categoryInput = document.getElementById("menu-category");
+
+  const query = `UPDATE menu SET  
+                  itemname = '${itemNameInput.value}', 
+                  itemprice = ${parseFloat(itemPriceInput.value)}, 
+                  invlist = '${invListInput.value}', 
+                  pics = '${picsInput.value}', 
+                  category = '${categoryInput.value}'
+                WHERE menuid = ${selectedValue}`;
+
+  fetch(`/orderquery?query=${encodeURIComponent(query)}`)
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response data 
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+function addMenu() {
+  const selectedValue =  document.getElementById("menuitems-dropdown").value 
+  if(selectedValue != "ADD"){
+    return;
+  }
+  let newID;
+
+const query1 = `SELECT MAX(menuid) FROM MENU`;
+
+fetch(`/orderquery?query=${encodeURIComponent(query1)}`)
+  .then((response) => response.json())
+  .then((data) => { 
+    newID = data[0].max;
+
+    const itemNameInput = document.getElementById("menu-itemname");
+    const itemPriceInput = document.getElementById("menu-itemprice");
+    const invListInput = document.getElementById("menu-invlist");
+    const picsInput = document.getElementById("menu-pics");
+    const categoryInput = document.getElementById("menu-category");
+
+    const query2 = `INSERT INTO menu (menuid, itemname, itemprice, invlist, pics, category) 
+                    VALUES (${newID + 1}, '${itemNameInput.value}', ${parseFloat(itemPriceInput.value)}, 
+                    '${invListInput.value}', '${picsInput.value}', '${categoryInput.value}')`;
+
+    fetch(`/orderquery?query=${encodeURIComponent(query2)}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response data 
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+
+}
 
 function runReport() {
   var dropdown = document.getElementById("report-dropdown");
