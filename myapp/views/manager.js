@@ -85,8 +85,7 @@ function generateXReport(){
                 const { menuid, itemprice } = data[0];
                 let curr = reportOutput.textContent;
                 reportOutput.textContent = curr + item + ": " + quantity + "\n";
-                let totalPrice = parseFloat(salesAmount.toFixed(2));
-                totalPrice += Number(itemprice);
+                let totalPrice = salesAmount + parseFloat(itemprice);
                 salesAmount = totalPrice;
                 return menuid;
               });
@@ -96,7 +95,7 @@ function generateXReport(){
         }
 
         curr = reportOutput.textContent;
-        let roundedNum = parseFloat(salesAmount.toFixed(2));
+        let roundedNum = salesAmount.toFixed(2);
         reportOutput.textContent = curr + "\n" + "\n Total Sales: " + roundedNum + "\n";
       });
   } catch (d) {
