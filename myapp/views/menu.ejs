@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <head>
-  <title>Customer</title>
-  <link href="customer.css" rel="stylesheet" type="text/css" />
+  <title>Menu</title>
+  <link href="menu.css" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" type="image/png" href="images/smalllogo.png">
-  <script src="customer.js"></script>
+  <script src="menu.js"></script>
 </head>
 <body>
   <div id="google_translate_element"></div>
@@ -13,13 +13,34 @@
     </ul>
   </nav>
   <br>
-  <div class="container">
+  <div class="smoothie">
     <ul>
         <% for (var i in menuitems) { %>
-          <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
-          <br>
+          <!-- <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li> -->
+          <% if (menuitems[i].category == "Smoothie") { %>
+            <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+          <% } %>
         <% } %>
       </ul>
     </div>
+    <div class="snack">
+        <% for (var i in menuitems) { %>
+          <% }if (menuitems[i].category == "Snack") { %>
+            <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+        <% } %>
+    </div>
+    <div class="protein">
+        <% for (var i in menuitems) { %>
+          <% }if (menuitems[i].category == "Protein Smoothie") { %>
+            <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+        <% } %>
+    </div>
+    <div class="recovery">
+        <% for (var i in menuitems) { %>
+          <% }if (menuitems[i].category == "Recovery Smoothie") { %>
+            <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+        <% } %>
+    </div>
+
   </div>
 </body>
