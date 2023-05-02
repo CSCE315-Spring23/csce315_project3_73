@@ -31,6 +31,7 @@
       <!-- HTML elements for editing inventory -->
       <select id="inventoryitems-dropdown">
         <option value="none">Select Inventory Item...</option>
+        <option value="ADD">ADD ITEM</option>
         <% for(let i=0; i<inventoryitems.length; i++) { %>
           <option value="<%= inventoryitems[i].invid %>"><%= inventoryitems[i].itemname %></option>
     
@@ -44,6 +45,9 @@
       <br>
       <input type="text" id="inventory-numitems">
       <br>
+      <b value="Delete" onclick="deleteItem()">Delete Item</b>
+      <b value="Edit" onclick="editItem()">Edit Item</b>
+      <b value="Add Item" onclick="addItem()">Add Item</b>
 
     </div>
     
@@ -109,15 +113,15 @@
       editMenu.style.display = "none";
       runReports.style.display = "none";
 
-      // Move inventory dropdown inside display area
-      displayArea.appendChild(inventoryDropdown);
+      // Move inventory dropdown inside display area 
+      displayArea.appendChild(editInventory);
     } else if (selectedOption === "option2") {
       editInventory.style.display = "none";
       editMenu.style.display = "block";
       runReports.style.display = "none";
 
       // Move menu dropdown inside display area
-      displayArea.appendChild(menuDropdown);
+      displayArea.appendChild(editMenu);
     } else if (selectedOption === "option3") {
       editInventory.style.display = "none";
       editMenu.style.display = "none";
