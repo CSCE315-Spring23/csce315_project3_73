@@ -13,34 +13,52 @@
     </ul>
   </nav>
   <br>
-  <div class="smoothie">
-    <ul>
+  <div class="left">
+    <div class="column">
+      <h2>Smoothie</h2>
+      <ul>
         <% for (var i in menuitems) { %>
-          <!-- <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li> -->
           <% if (menuitems[i].category == "Smoothie") { %>
             <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
           <% } %>
         <% } %>
       </ul>
-    </div>
-    <div class="snack">
+      <br>
+     </div>
+   </div>>
+  <div class="right">
+    <div class="column">
+      <h2>Snack</h2>
+      <ul>
         <% for (var i in menuitems) { %>
-          <% }if (menuitems[i].category == "Snack") { %>
+          <% if (menuitems[i].category == "Snack") { %>
             <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+          <% } %>
         <% } %>
+      </ul>
+      <br>
     </div>
-    <div class="protein">
+    <div class="column">
+      <h2>Protein Smoothie</h2>
+      <ul>
         <% for (var i in menuitems) { %>
-          <% }if (menuitems[i].category == "Protein Smoothie") { %>
+          <% if (menuitems[i].category == "Protein Smoothie") { %>
             <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+          <% } %>
         <% } %>
+      </ul>
     </div>
-    <div class="recovery">
+    <div class="column">
+      <h2>Recovery Smoothie</h2>
+      <ul>
         <% for (var i in menuitems) { %>
-          <% }if (menuitems[i].category == "Recovery Smoothie") { %>
+          <% if (menuitems[i].category == "Recovery Smoothie") { %>
             <li><%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %></li>
+          <% } %>
         <% } %>
+      </ul>
+      <br>
     </div>
-
+</div>
   </div>
 </body>
