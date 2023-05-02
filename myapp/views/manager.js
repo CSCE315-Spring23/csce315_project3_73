@@ -16,3 +16,102 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log(error);
     });
 });
+
+
+function runReport(){
+  var dropdown = document.getElementById("report-dropdown");
+  var selectedValue = dropdown.value;
+
+  if(selectedValue == "option0" ){
+
+  }else if(selectedValue == "option1"){
+    generateXReport();
+  }else if(selectValue == "option2"){
+    generateZReport();
+  }else if(selectValue == "option3"){
+    generateRestockReport();
+  }else if(selectValue == "option4"){
+    generateExcessReport();
+  }
+
+}
+
+function generateXReport(){
+  let salesOrderList = "";
+  let count = 0;
+  let salesAmount = 0.0;
+  let itemQuantities = new Map();
+
+  let currentDate = new Date();
+  let formattedDate = currentDate.toISOString().slice(0, 19).replace("T", " ");
+
+  let startDate = currentDate.toISOString().slice(0, 10);
+
+  try {
+    const query = encodeURIComponent(
+      `SELECT orderlist, orderprice FROM orders WHERE ordertime >= '${startDate}' AND ordertime < '${formattedDate}'`
+    );
+    fetch(`/orderquery?query=${query}`)
+      .then((response) => response.json())
+      .then((data) => {
+        for (let result of data) {
+          salesOrderList = result.orderlist;
+          salesAmount += result.orderprice;
+          let items = salesOrderList.split(",");
+          count++;
+          for (let item of items) {
+            let quantity = itemQuantities.get(item) || 0;
+            itemQuantities.set(item, quantity + 1);
+          }
+        }
+
+        // Generate x report
+        let reportOutput = document.getElementById("output-report").querySelector("p");
+        reportOutput.textContent = "X Report (Ran At Time: " + formattedDate + "): \n";
+        let curr = reportOutput.textContent;
+        reportOutput.textContent = curr + "-------------------------------------------------- \n";
+        curr = reportOutput.textContent;
+        reportOutput.textContent = curr + "# of Orders Up to now: " + count + "\n";
+        curr = reportOutput.textContent;
+        reportOutput.textContent = curr + "-------------------------------------------------- \n";
+
+        // Iterate over the hashmap
+        for (let [item, quantity] of itemQuantities) {
+          try {
+            const query = encodeURIComponent(`SELECT menuid, itemprice FROM menu WHERE itemname = '${item}'`);
+            fetch(`/orderquery?query=${query}`)
+              .then((response) => response.json())
+              .then((data) => {
+                const { menuid, itemprice } = data[0];
+                let curr = reportOutput.textContent;
+                reportOutput.textContent = curr + item + ": " + quantity + "\n";
+                let totalPrice = parseFloat(salesAmount.toFixed(2));
+                totalPrice += Number(itemprice);
+                salesAmount = totalPrice;
+                return menuid;
+              });
+          } catch (d) {
+            console.error(d);
+          }
+        }
+
+        curr = reportOutput.textContent;
+        let roundedNum = parseFloat(salesAmount.toFixed(2));
+        reportOutput.textContent = curr + "\n" + "\n Total Sales: " + roundedNum + "\n";
+      });
+  } catch (d) {
+    console.error(d);
+  }
+}
+
+function generateZReport(){
+  
+}
+
+function generateRestockReport(){
+  
+}
+
+function generateExcessReport(){
+  
+}
