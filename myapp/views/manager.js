@@ -1,9 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const weatherDiv = document.getElementById('weather');
+document.addEventListener("DOMContentLoaded", function () {
+  const weatherDiv = document.getElementById("weather");
 
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=College Station&appid=744dd002e597c065d1804fa120d67300`)
-    .then(response => response.json())
-    .then(data => {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=College Station&appid=744dd002e597c065d1804fa120d67300`
+  )
+    .then((response) => response.json())
+    .then((data) => {
       const temperature = (data.main.temp - 273.15) * 1.8 + 32;
       const roundedTemp = temperature.toFixed(2);
       const description = data.weather[0].description;
@@ -12,31 +14,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
       weatherDiv.innerHTML = `The weather in ${city}, ${country} is ${roundedTemp}°F and ${description}.`;
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
     });
 });
 
-
-function runReport(){
+function runReport() {
   var dropdown = document.getElementById("report-dropdown");
   var selectedValue = dropdown.value;
 
-  if(selectedValue == "option0" ){
-
-  }else if(selectedValue == "option1"){
+  if (selectedValue == "option0") {
+  } else if (selectedValue == "option1") {
     generateXReport();
-  }else if(selectedValue == "option2"){
+  } else if (selectedValue == "option2") {
     generateZReport();
-  }else if(selectedValue == "option3"){
+  } else if (selectedValue == "option3") {
     generateRestockReport();
-  }else if(selectedValue == "option4"){
+  } else if (selectedValue == "option4") {
     generateExcessReport();
   }
-
 }
 
-function generateXReport(){
+function generateXReport() {
   let salesOrderList = "";
   let count = 0;
   let salesAmount = 0.0;
@@ -66,21 +65,25 @@ function generateXReport(){
         }
 
         // Generate x report
-        let reportOutput = document.getElementById("output-report").querySelector("p");
-        let curr = "X Report (Ran At Time: " + formattedDate + "): <br>"; 
-        curr = curr + "-------------------------------------------------- <br>"; 
-        curr = curr + "# of Orders Up to now: " + count + "<br>"; 
+        let reportOutput = document
+          .getElementById("output-report")
+          .querySelector("p");
+        let curr = "X Report (Ran At Time: " + formattedDate + "): <br>";
+        curr = curr + "-------------------------------------------------- <br>";
+        curr = curr + "# of Orders Up to now: " + count + "<br>";
         curr = curr + "-------------------------------------------------- <br>";
 
         // Fetch menu items for each item in the report
         let promises = [];
         for (let [item, quantity] of itemQuantities) {
-          const menuQuery = encodeURIComponent(`SELECT itemname FROM menu WHERE menuid = ${item}`);
+          const menuQuery = encodeURIComponent(
+            `SELECT itemname FROM menu WHERE menuid = ${item}`
+          );
           let promise = fetch(`/orderquery?query=${menuQuery}`)
             .then((response) => response.json())
             .then((data) => {
               if (data.length > 0) {
-                const itemName = data[0].itemname; 
+                const itemName = data[0].itemname;
                 curr = curr + itemName + ": " + quantity + "<br>";
                 return itemName;
               }
@@ -89,9 +92,13 @@ function generateXReport(){
         }
 
         // Update the report output with the menu item names
-        Promise.all(promises).then(() => { 
+        Promise.all(promises).then(() => {
           let roundedNum = salesAmount.toFixed(2);
-          reportOutput.innerHTML = curr.replace(/\n/g, "<br>") + "<br><br> Total Sales: " + roundedNum + "<br>";
+          reportOutput.innerHTML =
+            curr.replace(/\n/g, "<br>") +
+            "<br><br> Total Sales: " +
+            roundedNum +
+            "<br>";
         });
       });
   } catch (d) {
@@ -99,82 +106,88 @@ function generateXReport(){
   }
 }
 
-function generateZReport(){
+function generateZReport() {
   let salesOrderList = "";
-let count = 0;
-let salesAmount = 0.0;
-let itemQuantities = {};
+  let count = 0;
+  let salesAmount = 0.0;
+  let itemQuantities = {};
 
-const currentDate = new Date();
-const formattedDate = currentDate.toISOString().split('T')[0];
+  const currentDate = new Date();
+  const formattedDate = currentDate.toISOString().split("T")[0];
 
-const sqlStatement = `SELECT * from orders WHERE ordertime >= '${formattedDate}'`;
+  const sqlStatement = `SELECT * from orders WHERE ordertime >= '${formattedDate}'`;
 
-const query = encodeURIComponent(sqlStatement);
+  const query = encodeURIComponent(sqlStatement);
 
-fetch(`/orderquery?query=${query}`)
-  .then((response) => response.json())
-  .then((data) => {
-    const fetchPromises = [];
+  fetch(`/orderquery?query=${query}`)
+    .then((response) => response.json())
+    .then((data) => {
+      const fetchPromises = [];
 
-    for (const result of data) {
-      salesOrderList = result.orderlist;
-      salesAmount += parseFloat(result.orderprice);
-      const items = salesOrderList.split(",");
-      count++;
-      for (const item of items) {
-        const quantity = itemQuantities[item] || 0;
-        itemQuantities[item] = quantity + 1;
+      for (const result of data) {
+        salesOrderList = result.orderlist;
+        salesAmount += parseFloat(result.orderprice);
+        const items = salesOrderList.split(",");
+        count++;
+        for (const item of items) {
+          const quantity = itemQuantities[item] || 0;
+          itemQuantities[item] = quantity + 1;
+        }
       }
-    }
 
-    // Generate report
-    let reportOutput = document.getElementById("output-report").querySelector("p");
-    let curr = "Z Report(" + formattedDate + ")\n";
-    curr += "-------------------------------------------------- \n";
-    curr += "# of Orders Today: " + count + "\n";
-    curr += "-------------------------------------------------- \n";
+      // Generate report
+      let reportOutput = document
+        .getElementById("output-report")
+        .querySelector("p");
+      let curr = "Z Report(" + formattedDate + ")\n";
+      curr += "-------------------------------------------------- \n";
+      curr += "# of Orders Today: " + count + "\n";
+      curr += "-------------------------------------------------- \n";
 
-    // Iterate over entries in hash map
-    for (const [item, quantity] of Object.entries(itemQuantities)) {
-      try {
-        const query = encodeURIComponent(`SELECT itemname FROM menu WHERE menuid = ${item}`);
-        const fetchPromise = fetch(`/orderquery?query=${query}`)
-          .then((response) => response.json())
-          .then((result) => {
-            const itemName = result.itemname;
-            curr += itemName + ": " + quantity + "\n";
-          })
-          .catch((error) => {
-            console.error(error);
+      // Iterate over entries in hash map
+      for (const [item, quantity] of Object.entries(itemQuantities)) {
+        try {
+          const query = encodeURIComponent(
+            `SELECT itemname FROM menu WHERE menuid = ${item}`
+          );
+          const fetchPromise = fetch(`/orderquery?query=${query}`)
+            .then((response) => response.json())
+            .then((data) => {
+              const itemName = data[0].itemname; // Access the correct property name in the response
+              curr += itemName + ": " + quantity + "\n";
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+
+          fetchPromises.push(fetchPromise);
+        } catch (d) {
+          d.printStackTrace();
+          console.error(d.constructor.name + ": " + d.message);
+        }
+      }
+
+      Promise.all(fetchPromises)
+        .then(() => {
+          const df = new Intl.NumberFormat("en-US", {
+            minimumFractionDigits: 2,
           });
-
-        fetchPromises.push(fetchPromise);
-      } catch (d) {
-        d.printStackTrace();
-        console.error(d.constructor.name + ": " + d.message);
-      }
-    }
-
-    Promise.all(fetchPromises)
-      .then(() => {
-        const df = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2 });
-        const roundedNum = parseFloat(df.format(salesAmount));
-        reportOutput.innerHTML = curr.replace(/\n/g, "<br>") + "<br><br> Total Sales: " + roundedNum + "<br>";
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+          const roundedNum = parseFloat(df.format(salesAmount));
+          reportOutput.innerHTML =
+            curr.replace(/\n/g, "<br>") +
+            "<br><br> Total Sales: " +
+            roundedNum +
+            "<br>";
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
-function generateRestockReport(){
-  
-}
+function generateRestockReport() {}
 
-function generateExcessReport(){
-  
-}
+function generateExcessReport() {}
