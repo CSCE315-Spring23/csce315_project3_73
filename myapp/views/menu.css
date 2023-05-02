@@ -39,40 +39,43 @@ a:hover {
   color: black;
 }
 
-  .left{
-    width: 45%;
-    float: left;
-  }
-
-  .right{
-    width: 45%;
-    float: right;
-  }
-
 .container {
-  vertical-align: top;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-content: space-between;
-}
-
-.column {
-  flex-basis: 25%;
-}
-
-.smoothie {
-  flex-direction: column;
-}
-
-.snack {
-  flex-direction: column;
-}
-
-.protein {
-  flex-direction: column;
-}
-
-.recovery {
-  flex-direction: column;
-}
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  
+  .left {
+    flex-basis: 25%;
+    margin-left: 10px; 
+    border: 1px solid #ccc;
+  }
+  
+  .center {
+    flex-basis: 20%;
+    margin-left:10px;
+    border: 1px solid #ccc;
+  }
+  
+  .right {
+    flex-basis: 60%;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .pictures {
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pictures img {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto;
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
