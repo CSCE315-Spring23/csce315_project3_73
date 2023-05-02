@@ -101,63 +101,74 @@ function generateXReport(){
 
 function generateZReport(){
   let salesOrderList = "";
-  let count = 0;
-  let salesAmount = 0.0;
-  let itemQuantities = {};
+let count = 0;
+let salesAmount = 0.0;
+let itemQuantities = {};
 
-  const currentDate = new Date();
-  const formattedDate = currentDate.toISOString().split('T')[0];
+const currentDate = new Date();
+const formattedDate = currentDate.toISOString().split('T')[0];
 
-  const sqlStatement = `SELECT * from orders WHERE ordertime >= '${formattedDate}'`;
+const sqlStatement = `SELECT * from orders WHERE ordertime >= '${formattedDate}'`;
 
-  const query = encodeURIComponent(sqlStatement);
+const query = encodeURIComponent(sqlStatement);
 
-  fetch(`/orderquery?query=${query}`)
-    .then((response) => response.json())
-    .then((data) => {
-      for (const result of data) {
-        salesOrderList = result.orderlist;
-        salesAmount += parseFloat(result.orderprice);
-        const items = salesOrderList.split(",");
-        count++;
-        for (const item of items) {
-          const quantity = itemQuantities[item] || 0;
-          itemQuantities[item] = quantity + 1;
-        }
+fetch(`/orderquery?query=${query}`)
+  .then((response) => response.json())
+  .then((data) => {
+    const fetchPromises = [];
+
+    for (const result of data) {
+      salesOrderList = result.orderlist;
+      salesAmount += parseFloat(result.orderprice);
+      const items = salesOrderList.split(",");
+      count++;
+      for (const item of items) {
+        const quantity = itemQuantities[item] || 0;
+        itemQuantities[item] = quantity + 1;
       }
+    }
 
-      // Generate report
-      let reportOutput = document.getElementById("output-report").querySelector("p");
-      curr = "Z Report(${formattedDate}): \n"; 
-      curr = curr + "-------------------------------------------------- \n" ;
-      curr = curr + "# of Orders Today: " + count + "\n" ;
-      curr = curr + "-------------------------------------------------- \n" ;
+    // Generate report
+    let reportOutput = document.getElementById("output-report").querySelector("p");
+    let curr = "Z Report(" + formattedDate + ")\n";
+    curr += "-------------------------------------------------- \n";
+    curr += "# of Orders Today: " + count + "\n";
+    curr += "-------------------------------------------------- \n";
 
-      // Iterate over entries in hash map
-      for (const [item, quantity] of Object.entries(itemQuantities)) {
-        try {
-          const query = encodeURIComponent(`SELECT itemname FROM menu WHERE menuid = ${item}`);
-          fetch(`/orderquery?query=${query}`)
-            .then((response) => response.json())
-            .then((result) => {
-              const itemName = result.itemname; 
-              curr = curr + itemName + ": " + quantity + "\n" ;
-            })
-            .catch((error) => {
-              console.error(error);
-            });
-        } catch (d) {
-          d.printStackTrace();
-          console.error(d.constructor.name + ": " + d.message);
-        }
-      } 
-      const df = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2 });
-      const roundedNum = parseFloat(df.format(salesAmount));
-      reportOutput.innerHTML = curr.replace(/\n/g, "<br>") + "<br><br> Total Sales: " + roundedNum + "<br>";
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    // Iterate over entries in hash map
+    for (const [item, quantity] of Object.entries(itemQuantities)) {
+      try {
+        const query = encodeURIComponent(`SELECT itemname FROM menu WHERE menuid = ${item}`);
+        const fetchPromise = fetch(`/orderquery?query=${query}`)
+          .then((response) => response.json())
+          .then((result) => {
+            const itemName = result.itemname;
+            curr += itemName + ": " + quantity + "\n";
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+
+        fetchPromises.push(fetchPromise);
+      } catch (d) {
+        d.printStackTrace();
+        console.error(d.constructor.name + ": " + d.message);
+      }
+    }
+
+    Promise.all(fetchPromises)
+      .then(() => {
+        const df = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2 });
+        const roundedNum = parseFloat(df.format(salesAmount));
+        reportOutput.innerHTML = curr.replace(/\n/g, "<br>") + "<br><br> Total Sales: " + roundedNum + "<br>";
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 }
 
 function generateRestockReport(){
