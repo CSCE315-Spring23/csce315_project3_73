@@ -34,9 +34,11 @@
   
       <div class="center">
         <div class="pictures">
-          <img src="https://cdn.smoothieking.com/images/smoothies/cups-ingredients/sk-wellness-veggie-apple-kiwi-kale-with-ingredients.png" height="300" weigth="300" alt="Image 1">
+          <img src="https://cdn.smoothieking.com/images/smoothies/cups-ingredients/sk-wellness-veggie-apple-kiwi-kale-with-ingredients.png" height="200" weigth="200" alt="Image 1">
           <br>
-          <img src="https://cdn.smoothieking.com/images/smoothies/cups-ingredients/sk-take-a-break-banana-berry-treat-with-ingredients.png" height="300" weigth="300" alt="Image 2">
+          <img src="https://cdn.smoothieking.com/images/smoothies/cups-ingredients/sk-take-a-break-banana-berry-treat-with-ingredients.png" height="200" weigth="200" alt="Image 2">
+          <br>
+          <img src="https://cdn.smoothieking.com/images/smoothies/cups-ingredients/sk-wellness-blueberry-heaven-with-ingredients.png" height="200" weigth="200" alt="Image 3">
         </div>
       </div>
   
@@ -77,16 +79,21 @@
     
         </div>
         <div class="recovery">
-          <h2>Recovery Smoothies</h2>
-          <ul>
-            <% for (var i in menuitems) { %>
-            <% if (menuitems[i].category == "Recovery Smoothie") { %>
-            <%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %>
-            <br>
-            <% } %>
-            <% } %>
-          </ul>
-          <br>
+          <div class="recovery_list">
+            <h2>Recovery Smoothies</h2>
+            <ul>
+              <% for (var i in menuitems) { %>
+              <% if (menuitems[i].category == "Recovery Smoothie") { %>
+              <%= menuitems[i].itemname %> - <%= menuitems[i].itemprice %>
+              <br>
+              <% } %>
+              <% } %>
+            </ul>
+            <br>            
+          </div>
+        <div class="recover_pic">
+          <img src="https://cdn.smoothieking.com/images/smoothies/cups-ingredients/sk-fitness-the-activator-pineapple-with-ingredients.png" height="200" weigth="200" alt="Image 2">
+        </div>
         </div>
       </div>
     </div>
