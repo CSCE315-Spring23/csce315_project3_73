@@ -75,13 +75,17 @@ a:hover {
   .button-grid button:hover {
     background-color: #88daf3; 
   }
+   
   
   .button-grid button:active {
     animation-name: button-click;
     animation-duration: 0.3s;
     animation-timing-function: ease-in-out;
   }
-  
+  .button-grid button img {
+    max-width: 100%;
+    max-height: 100%;
+  }
   @keyframes button-click {
     0% {
       transform: scale(1);
