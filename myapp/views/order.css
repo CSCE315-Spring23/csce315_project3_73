@@ -39,8 +39,8 @@ a:hover {
 
 .container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* Change from row to column */
+  align-items: flex-start; /* Align items to the start */
   width: 50%;
 }
 
@@ -86,18 +86,14 @@ a:hover {
 }
 
 .text-box {
-  position: fixed;
-  top: 60px;  
-  right: 0;
-  width: 40%;
+  position: relative; /* Change from fixed to relative */
+  margin-top: 20px; /* Add margin-top to create space */
+  width: 100%;
   padding: 1rem;
   font-size: 1.2rem;
-  box-sizing: border-box;   
+  box-sizing: border-box;
   text-align: center;
-  margin-right: 5%;
-  margin-left: 5%;
-  z-index: 1; 
-}  
+}
 
 .text-box textarea{
   width: 100%;
