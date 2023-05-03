@@ -40,9 +40,10 @@ a:hover {
 }
 
 .container {
+    margin-left: 50px;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
   }
   
   .left {
