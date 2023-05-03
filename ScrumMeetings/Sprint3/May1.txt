@@ -1,0 +1,53 @@
+--------------------------------------------------------
+Here are our notes from meeting three of sprint 3:
+-------------------------------------------------------- 
+Agenda:
+-------------------------------------------------------- 
+
+Is there anything preventing contributors from getting work done? 
+
+What did you do yesterday?
+
+What are you doing today?
+
+How confident are you about our goals for the sprint?
+
+ 
+--------------------------------------------------------
+Lucas
+--------------------------------------------------------
+Lucas went first. He discussed about his status on the project and if we complete the sprint on time.
+
+Yesterday, he completed the google translate api and added it to the customer and the menu side.
+
+Today, he completed designing the menu board with Nitesh and realized we may not be able to complete the customer history due to time constraints.
+
+Lucas believes that the team can provide a successful end product for our Project 3.
+--------------------------------------------------------
+Tyler 
+--------------------------------------------------------
+Tyler went next. He discussed his status on the project and designed the template for the customer history.
+
+He fixed the bugs on the manager view with the manager reports and editing items.
+
+Today he worked with the Lucas on getting the google translate api onto the website.
+
+Tyler also believes that the team can submit a product that is satisfactory.
+--------------------------------------------------------
+Nitesh
+--------------------------------------------------------
+Nitesh went last. He also presented his status update on the project and discussed if we should leave out the customer history due to lack of time.
+
+Yesterday, he worked with Lucas to get the menu board completed and styled the front end for the customer side to look neat.
+
+Today he worked with Lucas and adjusted the front end for the menu view as well.
+
+Nitesh is confident that we could present a successful team project even if we left out few tasks from the backlog.
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+Ending Notes;
+--------------------------------------------------------
+Overall the team was able to catch up to the enormous product backlog we had for Sprint 3 and still created a satisfactory end result
+despite having to adjust the original backlog slightly.
+--------------------------------------------------------
