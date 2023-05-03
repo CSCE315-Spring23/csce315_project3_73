@@ -28,6 +28,7 @@ li {
   list-style-type: none; 
   padding: 0;
   display: flex;
+  align-items: center;
 }
 
 a {
@@ -143,6 +144,7 @@ a:hover {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+ 
 }
 
 .zoom-button:hover {
