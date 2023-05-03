@@ -110,6 +110,13 @@ async function handleOrder() {
 }
 
 function increaseSize() {
-  var content = document.getElementById("container");
-  content.classList.toggle("increased-size");
+  var container = document.querySelector('.container');
+  var elements = container.querySelectorAll('*');
+
+  for (var i = 0; i < elements.length; i++) {
+    var fontSize = window.getComputedStyle(elements[i]).fontSize;
+    var newSize = parseFloat(fontSize) + 2 + 'px'; // Increase the font size by 2 pixels
+
+    elements[i].style.fontSize = newSize;
+  }
 }
