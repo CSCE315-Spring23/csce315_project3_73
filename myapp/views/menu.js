@@ -1,3 +1,7 @@
+/**
+ * Event listener for the "DOMContentLoaded" event that retrieves and displays the weather information for College Station.
+ * @param {Event} event - The DOMContentLoaded event object.
+ */
 document.addEventListener("DOMContentLoaded", function () {
 
   const weatherDiv = document.getElementById("weather");

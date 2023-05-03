@@ -1,4 +1,32 @@
-var inputDate;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: views/manager.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: views/manager.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var inputDate;
 /**
  * Event listener for the "DOMContentLoaded" event that retrieves and displays the weather information for College Station.
  * @param {Event} event - The DOMContentLoaded event object.
@@ -13,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const weatherDiv = document.getElementById("weather");
 
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=College Station&appid=744dd002e597c065d1804fa120d67300`
+    `https://api.openweathermap.org/data/2.5/weather?q=College Station&amp;appid=744dd002e597c065d1804fa120d67300`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -259,7 +287,7 @@ function generateXReport() {
 
   try {
     const query = encodeURIComponent(
-      `SELECT orderlist, orderprice FROM orders WHERE ordertime >= '${startDate}' AND ordertime < '${formattedDate}'`
+      `SELECT orderlist, orderprice FROM orders WHERE ordertime >= '${startDate}' AND ordertime &lt; '${formattedDate}'`
     );
     fetch(`/orderquery?query=${query}`)
       .then((response) => response.json())
@@ -279,10 +307,10 @@ function generateXReport() {
         let reportOutput = document
           .getElementById("output-report")
           .querySelector("p");
-        let curr = "X Report (Ran At Time: " + formattedDate + "): <br>";
-        curr = curr + "-------------------------------------------------- <br>";
-        curr = curr + "# of Orders Up to now: " + count + "<br>";
-        curr = curr + "-------------------------------------------------- <br>";
+        let curr = "X Report (Ran At Time: " + formattedDate + "): &lt;br>";
+        curr = curr + "-------------------------------------------------- &lt;br>";
+        curr = curr + "# of Orders Up to now: " + count + "&lt;br>";
+        curr = curr + "-------------------------------------------------- &lt;br>";
 
         // Fetch menu items for each item in the report
         let promises = [];
@@ -295,7 +323,7 @@ function generateXReport() {
             .then((data) => {
               if (data.length > 0) {
                 const itemName = data[0].itemname;
-                curr = curr + itemName + ": " + quantity + "<br>";
+                curr = curr + itemName + ": " + quantity + "&lt;br>";
                 return itemName;
               }
             });
@@ -306,10 +334,10 @@ function generateXReport() {
         Promise.all(promises).then(() => {
           let roundedNum = salesAmount.toFixed(2);
           reportOutput.innerHTML =
-            curr.replace(/\n/g, "<br>") +
-            "<br><br> Total Sales: " +
+            curr.replace(/\n/g, "&lt;br>") +
+            "&lt;br>&lt;br> Total Sales: " +
             roundedNum +
-            "<br>";
+            "&lt;br>";
         });
       });
   } catch (d) {
@@ -388,10 +416,10 @@ function generateZReport() {
           });
           const roundedNum = parseFloat(df.format(salesAmount));
           reportOutput.innerHTML =
-            curr.replace(/\n/g, "<br>") +
-            "<br><br> Total Sales: " +
+            curr.replace(/\n/g, "&lt;br>") +
+            "&lt;br>&lt;br> Total Sales: " +
             roundedNum +
-            "<br>";
+            "&lt;br>";
         })
         .catch((error) => {
           console.error(error);
@@ -413,7 +441,7 @@ function generateRestockReport() {
   reportOutput.innerText = "Items with stock below 100: \n \n";
 
   const query =
-    "SELECT itemname, numitems FROM inventory WHERE numitems <= 100";
+    "SELECT itemname, numitems FROM inventory WHERE numitems &lt;= 100";
   const fetchPromise = fetch(`/orderquery?query=${query}`);
 
   fetchPromise
@@ -506,7 +534,7 @@ function generateExcessReport() {
                 const diff = valBefore - valCurr;
                 const diffPercentage = (diff / valBefore) * 100;
 
-                if (diffPercentage < 10) {
+                if (diffPercentage &lt; 10) {
                   fetch(
                     `/orderquery?query=${encodeURIComponent(
                       `SELECT itemname FROM inventory WHERE invid = ${key}`
@@ -516,7 +544,7 @@ function generateExcessReport() {
                     .then((result) => {
                       currName = result[0].itemname;
                       const formattedDiffPercentage = diffPercentage.toFixed(2);
-                      reportOutput.innerHTML += `${currName}: ${formattedDiffPercentage}%<br>`;
+                      reportOutput.innerHTML += `${currName}: ${formattedDiffPercentage}%&lt;br>`;
                     })
                     .catch((error) => {
                       console.error(error);
@@ -536,3 +564,26 @@ function generateExcessReport() {
       console.error(error);
     });
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addItem">addItem</a></li><li><a href="global.html#addMenu">addMenu</a></li><li><a href="global.html#deleteItem">deleteItem</a></li><li><a href="global.html#deleteMenu">deleteMenu</a></li><li><a href="global.html#editItem">editItem</a></li><li><a href="global.html#editMenu">editMenu</a></li><li><a href="global.html#ensureAuthenticated">ensureAuthenticated</a></li><li><a href="global.html#generateExcessReport">generateExcessReport</a></li><li><a href="global.html#generateRestockReport">generateRestockReport</a></li><li><a href="global.html#generateXReport">generateXReport</a></li><li><a href="global.html#generateZReport">generateZReport</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#handleDelete">handleDelete</a></li><li><a href="global.html#handleOrder">handleOrder</a></li><li><a href="global.html#increaseSize">increaseSize</a></li><li><a href="global.html#runReport">runReport</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue May 02 2023 21:46:56 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
