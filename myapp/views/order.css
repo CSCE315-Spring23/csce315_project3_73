@@ -52,7 +52,7 @@ a:hover {
 .button-grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: 80px;
   grid-gap: 1rem;
 }
@@ -62,7 +62,7 @@ a:hover {
   color: white;
   border: none;
   padding: 0.8rem;
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   text-align: center;
   width: 100%;
   height: 100%;
