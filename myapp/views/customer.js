@@ -108,3 +108,8 @@ async function handleOrder() {
   lastPrice = [];
   totalPriceDiv.textContent= "$" + currOrderTotal.toFixed(2);
 }
+
+function increaseSize() {
+  var content = document.getElementById("container");
+  content.classList.toggle("increased-size");
+}
