@@ -57,6 +57,7 @@ a:hover {
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 100px;
   grid-gap:2rem;
+  grid-row-gap: 2rem;
 }
   
   .button-grid button {
