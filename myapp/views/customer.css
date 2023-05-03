@@ -59,7 +59,8 @@ a:hover {
 }
 
 .button-grid button {
-  color: white;
+  color: rgb(33, 30, 30);
+  font-weight: bold;
   border: none;
   padding: 1rem;
   font-size: 1.2rem;
