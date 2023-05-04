@@ -288,7 +288,7 @@ const seconds = String(currentDate.getSeconds()).padStart(2, '0');
         let reportOutput = document
           .getElementById("output-report")
           .querySelector("p");
-        let curr = "X Report (Ran At Time: " + formattedDate + "): <br>";
+        let curr = "X Report (Ran At Time: " + formattedTime + "): <br>";
         curr = curr + "-------------------------------------------------- <br>";
         curr = curr + "# of Orders Up to now: " + count + "<br>";
         curr = curr + "-------------------------------------------------- <br>";
