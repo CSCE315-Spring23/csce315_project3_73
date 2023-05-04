@@ -56,10 +56,11 @@ function deleteItem() {
  * Function to edit an item in the inventory.
  */
 function editItem() {
+  let selectedValue = document.getElementById("inventoryitems-dropdown").value;
   if(selectedValue == "ADD" || selectedValue == "ADD"){
     return;
   }
-  const selectedValue = parseInt(
+  selectedValue = parseInt(
     document.getElementById("inventoryitems-dropdown").value,
     10
   ); 
@@ -150,8 +151,12 @@ function deleteMenu() {
  * Function to edit a menu item.
  */
 function editMenu() {
-  const selectedValue = parseInt(
-    document.getElementById("menuitems-dropdown").value,
+  let selectedValue = document.getElementById("inventoryitems-dropdown").value;
+  if(selectedValue == "ADD" || selectedValue == "ADD"){
+    return;
+  }
+  selectedValue = parseInt(
+    document.getElementById("inventoryitems-dropdown").value,
     10
   ); 
   const itemNameInput = document.getElementById("menu-itemname");
