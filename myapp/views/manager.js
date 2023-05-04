@@ -268,7 +268,7 @@ const seconds = String(currentDate.getSeconds()).padStart(2, '0');
 
   try {
     const query = encodeURIComponent(
-      `SELECT orderlist, orderprice FROM orders WHERE ordertime >= '${startDate}' AND ordertime < '${formattedDate}'`
+      `SELECT orderlist, orderprice FROM orders WHERE ordertime >= '${startDate}' AND ordertime < '${formattedTime}'`
     );
     fetch(`/orderquery?query=${query}`)
       .then((response) => response.json())
