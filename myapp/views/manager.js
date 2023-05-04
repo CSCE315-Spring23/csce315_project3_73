@@ -151,12 +151,12 @@ function deleteMenu() {
  * Function to edit a menu item.
  */
 function editMenu() {
-  let selectedValue = document.getElementById("inventoryitems-dropdown").value;
+  let selectedValue = document.getElementById("menuitems-dropdown").value;
   if(selectedValue == "ADD" || selectedValue == "ADD"){
     return;
   }
   selectedValue = parseInt(
-    document.getElementById("inventoryitems-dropdown").value,
+    document.getElementById("menuitems-dropdown").value,
     10
   ); 
   const itemNameInput = document.getElementById("menu-itemname");
