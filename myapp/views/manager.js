@@ -1,4 +1,5 @@
 var inputDate;
+var lastZReport = "";
 /**
  * Event listener for the "DOMContentLoaded" event that retrieves and displays the weather information for College Station.
  * @param {Event} event - The DOMContentLoaded event object.
@@ -336,8 +337,21 @@ function generateZReport() {
   let itemQuantities = {};
 
   const currentDate = new Date();
-  const formattedDate = currentDate.toISOString().split("T")[0];
 
+const year = currentDate.getFullYear();
+const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+const day = String(currentDate.getDate()).padStart(2, '0'); 
+const hours = String(currentDate.getHours()).padStart(2, '0');
+const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+
+  if(lastZReport == ""){
+    formattedDate = `${year}-${month}-${day}`;
+    lastZReport  = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  }else{
+    formattedDate  = lastZReport;
+    lastZReport  = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  }  
   const sqlStatement = `SELECT * from orders WHERE ordertime >= '${formattedDate}'`;
 
   const query = encodeURIComponent(sqlStatement);
