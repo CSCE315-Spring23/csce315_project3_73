@@ -1,0 +1,53 @@
+--------------------------------------------------------
+Here are our notes from meeting one of sprint 3:
+-------------------------------------------------------- 
+Agenda:
+-------------------------------------------------------- 
+
+Is there anything preventing contributors from getting work done? 
+
+What did you do yesterday?
+
+What are you doing today?
+
+How confident are you about our goals for the sprint?
+
+ 
+--------------------------------------------------------
+Tyler 
+--------------------------------------------------------
+Tyler went first. He talked about how we would need to manage our tasks accordingly so we can finish the required goals for Sprint 3.
+
+He has been working on allowing customers to able to place orders in the customer view.
+
+Today he worked on finishing up weather api and creating a simple route to the manager view for it.
+
+He stated that he is confident that he will finish his tasks and the team will complete their goals for the sprint.
+--------------------------------------------------------
+Nitesh
+--------------------------------------------------------
+Nitesh went next. He talked about how we needed to dicuss what tasks to work on in the manager view so we can finish the project by the deadline.
+
+Yesterday Nitesh worked on creating the customer view and connecting it to the SQL database.
+
+Today he is going to work on the manager reports with Tyler and Lucas.
+
+Nitesh is also confident that the team can pull through despite having a lot more workload compared to the previous sprints.
+--------------------------------------------------------
+Lucas
+--------------------------------------------------------
+Lucas went last. He mentioned how we was researching implementing the api keys for google translate.
+
+Yesterday he worked on the google translate and claimed he could get it done by the next meeting.
+
+Today, he plans on working with the team to get the manager reports running.
+
+Lucas believes that the team can complete the project but is not confident if we can catch up to the original product backlog.
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+Ending Notes;
+--------------------------------------------------------
+Overall, this team meeting helped us understand where we stood in the project and how we would divide the work so we can finish 
+the deliverables on time.
+--------------------------------------------------------

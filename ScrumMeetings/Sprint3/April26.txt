@@ -1,0 +1,53 @@
+--------------------------------------------------------
+Here are our notes from meeting two of sprint 3:
+-------------------------------------------------------- 
+Agenda:
+-------------------------------------------------------- 
+
+Is there anything preventing contributors from getting work done? 
+
+What did you do yesterday?
+
+What are you doing today?
+
+How confident are you about our goals for the sprint?
+
+ 
+--------------------------------------------------------
+Nitesh
+--------------------------------------------------------
+Nitesh went first. He did some research on getting the front end to match some of the popular brands.
+
+Yesterday, he was working on allowing the manager to edit the inventory and the menu. 
+
+Today he worked on the manager reports with the team.
+
+Nitesh is confident that the team can complete the project if we kept the pace.
+--------------------------------------------------------
+Lucas
+--------------------------------------------------------
+Lucas went next. He mentioned his progress on the research on the google translate api.
+
+Yesterday, he was working on completing the menu board and adjusting the front end.
+
+Today, he worked with the team and completed the manager reports.
+
+Lucas is also confident that the team can complete the project on time with our current pace.
+--------------------------------------------------------
+Tyler 
+--------------------------------------------------------
+Tyler went last. He shared his views on how to implement the customer history task.
+
+He has been working with Nitesh on editing inventory and menu items with Nitesh.
+
+Today he completed the manager reports on the manager view and adjusted the front end to look clear.
+
+Tyler believes the team can also complete the project if we continued working on it diligently.
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+Ending Notes;
+--------------------------------------------------------
+Overall this team meeting was successful in the sense, the team was moving towards the goal steadily and 
+was clearing the tasks quickly.
+--------------------------------------------------------
